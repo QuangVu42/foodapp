@@ -1,0 +1,30 @@
+@import 'normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    line-height: 1.5;
+    font-size: 1.6rem;
+    text-rendering: optimizeLegibility;
+}
+input,button{
+    outline: none;
+    border: none;
+}
+a[href]{
+    text-decoration: none;
+}
+
+:root {
+	--yellow: #feb60a;
+	--red: #ff0062;
+	--blue: #00dbf9;
+	--violet: #da00f7;
+}
