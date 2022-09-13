@@ -1,0 +1,31 @@
+.warpper{
+    align-items: center;
+    cursor: pointer;
+    text-transform: capitalize;
+    padding: 5px;
+}
+
+// item
+.item, .itemLogo{
+    font-size: 1.4rem;
+    color: var(--white);
+    transition: transform 0.2s linear;
+}
+li>.item::after{
+    content: '';
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    position: absolute;
+    left: auto;
+    right: 0;
+    -webkit-transition: width 0.6s;
+    transition: width 0.6s;
+    background: var(--red);
+}
+li>.item:hover:after{
+    width: 100%;
+    left: 0;
+}
+
+// item-logo

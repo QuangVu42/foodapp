@@ -27,4 +27,26 @@ a[href]{
 	--red: #ff0062;
 	--blue: #00dbf9;
 	--violet: #da00f7;
+    --white: #fff;
+}
+ul,li{
+    list-style-type: none;
+}
+.container{
+    width: 1170px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+@mixin afterUnderlined {
+    content: '';
+    width: 0%;
+    height: 1px;
+    bottom: 0;
+    position: absolute;
+    left: auto;
+    right: 0;
+    -webkit-transition: width 0.6s;
+    transition: width 0.6s;
+    background: var(--red);
 }

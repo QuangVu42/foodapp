@@ -4,7 +4,7 @@ import Home from '../Components/Home/Home'
 
 const publicRoutes = [
     {path:'/', component: Home},
-    {path:'/Header', component: Header, layout: null},
+    {path:'/Header', component: Header},
     {path:'/Footer', component: Footer, layout: Header}
 ]
 export default publicRoutes

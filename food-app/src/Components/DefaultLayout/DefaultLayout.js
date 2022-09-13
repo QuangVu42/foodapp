@@ -1,6 +1,18 @@
-function DefaultLayout (){
+import classNames from 'classnames/bind'
+
+import Header from '../Header/Header'
+import Slider from '../Slider/Slider'
+import Styles from './DefaultLayout.module.scss'
+
+const cx = classNames.bind(Styles)
+
+function DefaultLayout ({childern}){
     return(
-        <div>Layout mac dinh</div>
+        <div className={cx('warpper')} >
+            <Header />
+            <Slider />
+            <div>{childern}</div>
+        </div>
     )
 }
 
