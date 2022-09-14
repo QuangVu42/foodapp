@@ -1,6 +1,6 @@
-import Header from '../Components/Header/Header'
-import Footer from '../Components/Footer/Footer'
-import Home from '../Components/Home/Home'
+import Header from '../layouts/components/Header/Header'
+import Footer from '../layouts/components/Footer/Footer'
+import Home from '../layouts/components/Home/Home'
 
 const publicRoutes = [
     {path:'/', component: Home},

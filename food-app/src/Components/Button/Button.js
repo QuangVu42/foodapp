@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import { Link } from 'react-router-dom';
 
-import Style from './GlobalButton.module.scss';
+import Style from './Button.module.scss';
 
 const cx = classNames.bind(Style)
 

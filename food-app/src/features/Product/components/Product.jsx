@@ -1,4 +1,4 @@
-import axiosClient from "./axiosClient";
+import axiosClient from '../../../apis/axiosClient'
 
 const productApi = {
     async getAll(params) {
@@ -8,7 +8,6 @@ const productApi = {
                 ...params,
             },
             paramsSerializer:  (params) => {
-                //ví dụ với trường hợp size=[1,2] => &size=1&size=2
                 return qs.stringify(params, { arrayFormat: 'repeat' })
             },
         })
@@ -19,6 +18,7 @@ const productApi = {
         const url = `/products/${id}/`;
         return axiosClient.get(url);
     },
+
     add(data) {
         const url = `/products/`;
         return axiosClient.post(url, data);
@@ -37,3 +37,4 @@ const productApi = {
 }
 
 export default productApi
+

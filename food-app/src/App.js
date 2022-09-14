@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 
 import publicRoutes from '../src/routes/Routes'
 import Loading from './Loading/Loading'
-import DefaultLayout from './Components/DefaultLayout/DefaultLayout'
+import DefaultLayout from './layouts/DefaultLayout/DefaultLayout'
 
 function App() {
   return (

@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faBurger, faStore, faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Styles from './Header.module.scss';
-import Logo from '../../assets/images/logo.svg';
-import GlobalButton from '../../Global/GlobalButton/GlobalButton';
+import Logo from '../../../assets/images/logo.svg'
+import Button from '../../../Components/Button/Button'
 
 const cx = classNames.bind(Styles)
 
@@ -16,7 +16,7 @@ function Header (){
                         <img  className={cx('header-logo')} src={Logo} alt="don't logo" />
                         <ul className={cx('navbar')}>
                             <li className={cx('navbar-item')}>
-                                <GlobalButton 
+                                <Button 
                                     item 
                                     href="https://www.facebook.com/" 
                                     childern={'page'} 
@@ -24,16 +24,28 @@ function Header (){
                                     />
                             </li>
                             <li className={cx('navbar-item')}>
-                                <FontAwesomeIcon icon={faBurger}  className={cx('icon')} />
-                                <GlobalButton item href="https://www.facebook.com/" childern={'order online'} />
+                                <Button 
+                                    item 
+                                    href="https://www.facebook.com/" 
+                                    childern= {'order online'}
+                                    icon = {<FontAwesomeIcon icon={faBurger}  className={cx('icon')} />}
+                                    />
                             </li>
                             <li className={cx('navbar-item')}>
-                                <FontAwesomeIcon icon={faNewspaper}  className={cx('icon')} />
-                                <GlobalButton item href="https://www.facebook.com/" childern={'news'} />
+                                <Button 
+                                    item 
+                                    href="https://www.facebook.com/" 
+                                    childern ={'news'}
+                                    icon = {<FontAwesomeIcon icon={faNewspaper}  className={cx('icon')} />}
+                                />
                             </li>
                             <li className={cx('navbar-item')}>
-                                <FontAwesomeIcon icon={faStore}  className={cx('icon')} />
-                                <GlobalButton item href="https://www.facebook.com/" childern={'store location'} />
+                                <Button 
+                                    item 
+                                    href="https://www.facebook.com/"
+                                    childern={'store localtions'} 
+                                    icon={<FontAwesomeIcon icon={faStore}  className={cx('icon')} />}
+                                />
                             </li>
                         </ul>
                 </div>
@@ -45,7 +57,7 @@ function Header (){
                             <div className={cx('account-icon')}>
                                 <FontAwesomeIcon icon={faUserAlt}  className={cx('icon')} />
                             </div>
-                            <GlobalButton itemLogo href="https://www.facebook.com/" childern={'sign in'} />
+                            <Button item href="https://www.facebook.com/" childern={'sign in'} />
                         </div>
                 </div>
             </header>
