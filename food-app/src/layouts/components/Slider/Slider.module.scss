@@ -1,7 +1,38 @@
 .warpper{
-    background-image: url('../../../assets//images/dec2abc6e39e921488c0026d53d63d9f\ \(1\).jpg');
-    height: 100vh;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    font-family: 'Courier Prime', monospace;
+    transition: transform 0.2s linear;
+    .banner{
+        position: relative;
+        transition: transform 0.2s linear;
+        .banner-img{
+            height: 100%;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .content{
+            position: absolute;
+            top:0;
+            left:0;
+            right: 0;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            .title{
+                font-size: 1.8rem;
+                text-transform: uppercase;
+                text-shadow: var(--text-shadow-text)
+            }
+            p{
+                font-size: 7.2rem;
+                margin: 15px 0;
+                line-height: 1;
+                width: 62%;
+                color: var(--blue);
+                text-shadow: var(--text-shadow-text)
+        }
+    }
+    }
 }

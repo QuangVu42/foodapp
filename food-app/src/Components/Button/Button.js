@@ -8,7 +8,7 @@ const cx = classNames.bind(Style)
 function GlobalButton({
     to, href, 
     primary = false, item =false, itemLogo = false, outline = false, small = false, large= false, 
-    icon, childern, onClick , ...passProps
+    icon, children, onClick , ...passProps
 }){
     let Comp = 'button';
 
@@ -31,14 +31,11 @@ function GlobalButton({
         small,
         large,
         item,
-        itemLogo
     })
     return(
         <Comp className={Classes} {...props}>
-            <span>
-                {icon}
-                {childern}
-            </span>
+                <div className={cx('icon')}>{icon}</div>
+                {children}
         </Comp>
     )
 }

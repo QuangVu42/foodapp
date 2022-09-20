@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap');
 
 *{
     margin: 0;
@@ -28,16 +29,68 @@ a[href]{
 	--blue: #00dbf9;
 	--violet: #da00f7;
     --white: #fff;
+    --black: #000000bd;
+    --grey: #8080801f;
+    --text-shadow-text:black 0.1em 0.1em 0.2em;
+    --text-shadow-block:0 2px 1px rgba(0,0,0,0.09), 
+                            0 4px 2px rgba(0,0,0,0.09), 
+                            0 8px 4px rgba(0,0,0,0.09), 
+                            0 16px 8px rgba(0,0,0,0.09),
+                            0 32px 16px rgba(0,0,0,0.09);
+    --text-shadow-border:0 2px 15px rgb(0 0 0 / 6%);
+    --text-shadow-block-big:0 3px 20px rgb(0 0 0 / 8%);
 }
 ul,li{
     list-style-type: none;
 }
-.container{
+h1{
+    text-transform: capitalize;
+    font-size: 3.2rem;
+}
+p{
+    text-transform: capitalize;
+}
+#container{
     width: 1170px;
 	margin: 0 auto;
-	padding: 0 15px;
+    padding: 5rem 0;
 }
-
+#container-header{
+    width: 1170px;
+	margin: 0 auto;
+}
+#slide{
+    margin: 5rem 0;
+}
+#blur-bacground{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    opacity: 0.5;
+}
+#border-slide{
+    border: 1px solid var(--white);
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: var(--text-shadow-border);
+}
+#underline-border{
+    color: var(--white);
+    z-index: 1;
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    max-width: 100%;
+    min-height: 8rem;
+    padding: 20px;
+    border-bottom: 2px solid var(--blue);
+    font-weight: 900;
+    transition: all .25s ease-in-out;
+    background: transparent;
+    position: relative;
+}
 @mixin afterUnderlined {
     content: '';
     width: 0%;
@@ -49,4 +102,21 @@ ul,li{
     -webkit-transition: width 0.6s;
     transition: width 0.6s;
     background: var(--red);
+}
+// edit swiper button
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    bottom: 3em;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    height: 20px;
+    width: 20px;
+}
+.swiper-pagination-bullet{
+    background-color: var(--blue);
+}
+// edit swiper prev , next icon
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--blue);
 }

@@ -1,0 +1,37 @@
+.warpper{
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    background-color: var(--grey);
+    .bestFood{
+        margin-bottom: 10rem;
+        .content{
+            p{
+                color: var(--blue);
+                font-size: 3.2rem;
+                span{
+                    color: var(--red);
+                }
+            }
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    .categoryFood{
+        padding: 5rem ;
+        box-shadow: var(--text-shadow-block-big);
+        .content{
+            p{
+                color: var(--yellow);
+            }
+        }
+        .slide{
+            margin: 5rem 0;
+            .imgslide{
+                height: 50%;
+                width: 50%;
+            }
+        }
+    }
+}

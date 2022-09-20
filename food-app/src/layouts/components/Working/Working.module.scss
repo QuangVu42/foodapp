@@ -1,0 +1,26 @@
+.warpper{
+    font-family: 'Courier Prime', monospace;
+    .title{
+        text-transform: capitalize;
+        text-align: center;
+        h1{
+            font-weight: 900;
+        }
+        p{
+            color: var(--yellow)
+        }
+    }
+    .content{
+        text-align-last:center;
+        .slide-work{    
+            .content{
+                font-size: 1.6rem;
+                padding: 20px 0;
+                transition: all .25s ease;
+                &:hover{
+                    color: var(--red);
+                }
+            }
+        }
+    }
+}

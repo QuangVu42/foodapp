@@ -3,12 +3,30 @@
     cursor: pointer;
     text-transform: capitalize;
     padding: 5px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+}
+
+//primary 
+.primary{
+    font-size: 1.4rem;
+    transition: transform 0.2s linear;
+    background-color: var(--red);
+    width: 15rem;
+    padding: 8px 15px;
+    border-radius: 999px;
+    box-shadow: var(--text-shadow-block);
+    transition: transform 0.4s linear;
+    &:hover{
+        transform: scale(1.1);
+        background-color: var(--blue);
+    }
 }
 
 // item
 .item{
     font-size: 1.4rem;
-    color: var(--white);
     transition: transform 0.2s linear;
 }
 li>.item::after{
@@ -27,5 +45,8 @@ li>.item:hover:after{
     width: 100%;
     left: 0;
 }
+.icon{
+    padding-right: 5px;
+}
+// item-button
 
-// item-logo

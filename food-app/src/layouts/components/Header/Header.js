@@ -11,7 +11,7 @@ const cx = classNames.bind(Styles)
 function Header (){
     return(
         <div className= {cx('warpper')}>
-            <header className={cx('header','container')}>
+            <header className={cx('header')} id="container-header">
                 <div className={cx('header-navbar')}>
                         <img  className={cx('header-logo')} src={Logo} alt="don't logo" />
                         <ul className={cx('navbar')}>
@@ -19,7 +19,7 @@ function Header (){
                                 <Button 
                                     item 
                                     href="https://www.facebook.com/" 
-                                    childern={'page'} 
+                                    children={'page'} 
                                     icon={<FontAwesomeIcon icon={faHome} className={cx('icon')} />}
                                     />
                             </li>
@@ -27,7 +27,7 @@ function Header (){
                                 <Button 
                                     item 
                                     href="https://www.facebook.com/" 
-                                    childern= {'order online'}
+                                    children= {'order online'}
                                     icon = {<FontAwesomeIcon icon={faBurger}  className={cx('icon')} />}
                                     />
                             </li>
@@ -35,7 +35,7 @@ function Header (){
                                 <Button 
                                     item 
                                     href="https://www.facebook.com/" 
-                                    childern ={'news'}
+                                    children ={'news'}
                                     icon = {<FontAwesomeIcon icon={faNewspaper}  className={cx('icon')} />}
                                 />
                             </li>
@@ -43,7 +43,7 @@ function Header (){
                                 <Button 
                                     item 
                                     href="https://www.facebook.com/"
-                                    childern={'store localtions'} 
+                                    children={'store localtions'} 
                                     icon={<FontAwesomeIcon icon={faStore}  className={cx('icon')} />}
                                 />
                             </li>
@@ -57,7 +57,7 @@ function Header (){
                             <div className={cx('account-icon')}>
                                 <FontAwesomeIcon icon={faUserAlt}  className={cx('icon')} />
                             </div>
-                            <Button item href="https://www.facebook.com/" childern={'sign in'} />
+                            <Button item href="https://www.facebook.com/" children={'sign in'} />
                         </div>
                 </div>
             </header>
