@@ -42,17 +42,17 @@ function Slider(){
     return(
         <div className={cx('warpper')}>
             <Swiper
-            centeredSlides={true}
-            loop={true}
-            autoplay={{
-                delay: 6000,
-                disableOnInteraction: false,
-            }}
-            pagination={{
-                clickable: true,
-            }}
-            modules={[Autoplay, Pagination]}
-            className="mySwiper"
+                centeredSlides={true}
+                loop={true}
+                autoplay={{
+                    delay: 6000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Autoplay, Pagination]}
+                className="mySwiper"
             >
                 {Banners.map(banner=>(
                    <SwiperSlide key={banner.id}>

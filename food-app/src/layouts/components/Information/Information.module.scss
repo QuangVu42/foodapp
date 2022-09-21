@@ -1,0 +1,37 @@
+.warpper{
+    background-image: url('../../../assets/images/Information.217f1271.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Courier Prime', monospace;
+    min-height: 75rem;
+    display: flex;
+    flex-direction: column;
+    .review{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        flex:1;
+    }
+    .container{
+        background-color: var(--red);
+        padding: 20px 0;
+        .content{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            text-transform: capitalize;
+            font-weight: 900;
+            h1{
+                color:var(--blue);
+                font-size: 6rem;
+            }
+            p{
+                font-size: 2rem;
+                color: var(--yellow)
+            }
+        }
+    }
+}

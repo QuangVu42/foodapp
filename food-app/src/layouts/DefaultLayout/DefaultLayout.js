@@ -7,6 +7,9 @@ import Ingredients from '../components/Ingredients/Ingredients'
 import BestFood from '../components/BestFood/BestFood'
 import Delivery from '../components/Delivery/Delivery'
 import QualityProducts from '../components/QualityProducts/QualityProducts'
+import Information from '../components/Information/Information'
+import Comment from '../components/Comment/Comment'
+import Footer from '../components/Footer/Footer'
 import Styles from './DefaultLayout.module.scss'
 
 const cx = classNames.bind(Styles)
@@ -21,6 +24,9 @@ function DefaultLayout ({childern}){
             <BestFood />
             <Delivery />
             <QualityProducts />
+            <Information />
+            <Comment />
+            <Footer />
             <div>{childern}</div>
         </div>
     )

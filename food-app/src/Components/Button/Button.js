@@ -7,8 +7,10 @@ const cx = classNames.bind(Style)
 
 function GlobalButton({
     to, href, 
-    primary = false, item =false, itemLogo = false, outline = false, small = false, large= false, 
-    icon, children, onClick , ...passProps
+    primary = false, item =false, itemLogo = false, 
+    outline = false, small = false, large= false,
+    circle = false,
+    element,icon , children, onClick , ...passProps
 }){
     let Comp = 'button';
 
@@ -24,18 +26,19 @@ function GlobalButton({
         props.href = href;
         Comp = 'a'
     }
-
     const Classes = cx('warpper',{
         primary,
         outline,
         small,
         large,
         item,
+        circle
     })
     return(
         <Comp className={Classes} {...props}>
                 <div className={cx('icon')}>{icon}</div>
                 {children}
+                {element}
         </Comp>
     )
 }
