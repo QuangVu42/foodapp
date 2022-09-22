@@ -30,6 +30,7 @@ a[href]{
 	--violet: #da00f7;
     --white: #fff;
     --black: #000000bd;
+    --background-black:rgba(0,0,0,.87) ;
     --grey: #8080801f;
     --text-shadow-text:black 0.1em 0.1em 0.2em;
     --text-shadow-block:0 2px 1px rgba(0,0,0,0.09), 
@@ -39,9 +40,11 @@ a[href]{
                             0 32px 16px rgba(0,0,0,0.09);
     --text-shadow-border:0 2px 15px rgb(0 0 0 / 6%);
     --text-shadow-block-big:0 3px 20px rgb(0 0 0 / 8%);
+    // underline
 }
 ul,li{
     list-style-type: none;
+    text-transform: capitalize;
 }
 h1{
     text-transform: capitalize;

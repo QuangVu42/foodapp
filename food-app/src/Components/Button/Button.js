@@ -10,7 +10,7 @@ function GlobalButton({
     primary = false, item =false, itemLogo = false, 
     outline = false, small = false, large= false,
     circle = false,
-    element,icon , children, onClick , ...passProps
+    element,btnIcon ,icon, children, onClick , ...passProps
 }){
     let Comp = 'button';
 
@@ -32,7 +32,8 @@ function GlobalButton({
         small,
         large,
         item,
-        circle
+        circle,
+        btnIcon
     })
     return(
         <Comp className={Classes} {...props}>

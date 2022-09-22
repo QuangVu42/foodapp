@@ -1,0 +1,47 @@
+.warpper{
+    background-color: var(--background-black);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .header{
+        margin-bottom: 20px;
+        .header-title{
+            color: var(--blue);
+        }
+        .header-icon{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .content{
+        display: inline-block;
+        font-size: 1.6rem;
+        ul{
+            display: flex;
+            li{
+                padding: 10px 20px;
+                cursor: pointer;
+                &:hover{
+                    color: var(--yellow);
+                }
+            }
+        }
+    }
+    .logo{
+        img{
+            width: 70%;
+        }
+    }
+    .address{
+        ul{
+            li{
+                cursor: pointer;
+                &:hover{
+                    color: var(--yellow);
+                }
+            }
+        }
+    }
+}

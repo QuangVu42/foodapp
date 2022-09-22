@@ -26,7 +26,7 @@
 
 // item
 .item{
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     transition: transform 0.2s linear;
 }
 li>.item::after{
@@ -135,5 +135,17 @@ li>.item:hover:after{
 	}
 	100% {
 		transform: translateY(-100%);
+	}
+}
+
+// icon
+.btnIcon{
+	font-size: 3rem;
+	color: var(--yellow);
+	.icon{
+		padding: 0 20px;
+        	&:hover{
+                color: var(--red);
+            }
 	}
 }
