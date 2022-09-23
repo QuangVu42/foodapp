@@ -13,7 +13,7 @@ const cx = classNames.bind(Styles)
 
 function Delivery(){
     return (
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id="container">
                 <div className={cx('delivery')}>
                     <Box sx={{flexGrow:2}}>

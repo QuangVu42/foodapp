@@ -1,0 +1,33 @@
+.item{
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--red);
+    color: var(--white);
+    box-shadow: var(--text-shadow-block);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    &:hover{
+        background-color: var(--blue);
+        color: var(--red);
+        transform:scale(1.1)
+    }
+}
+.list{
+    position: absolute;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: var(--text-shadow-block);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    cursor: pointer;
+    transition: all .25s ease-in-out;
+    color: var(--white);
+    font-weight: 900;
+    z-index: 1;
+}

@@ -82,7 +82,7 @@ function BestFood() {
     ]
 
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id="container">
                 <section className={cx('bestFood')}>
                     <div className={cx('content')}>

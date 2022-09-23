@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
-
+import Round from '../../../Components/Round/Round'
 import Styles from './Ingredients.module.scss'
 
 const cx = classNames.bind(Styles)
@@ -43,23 +43,32 @@ function Ingredients () {
     ]
 
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id="container" >
                 <div className={cx('ingredients')}>
-                    <Box sx={{flexGrow:2}}>
-                        <Grid container spacing={2}>
+                    <Box sx={{flexGrow:2}} className={cx('box')}>
+                        <Grid container spacing={2} >
                             <Grid item xs={2}>
-                                <div className={cx('box')}></div>
+                                <div> 
+                                </div>
                             </Grid>
                             <Grid item xs={10}>
-                                <Box sx={{flexGrow:2}} >
+                                <Box sx={{flexGrow:2}}  className={cx('box-content')}>
                                     <Grid container spacing={1}>
                                             {Contents.map(content=>(
-                                                <Grid item xs={12} key={content.id}>
+                                                <Grid item xs={12} key={content.id} id='round'>
                                                     <div id="underline-border">
-                                                        <h1>{content.title}</h1>
-                                                        <p>{content.content}</p>
+                                                        <h1 className={cx('title')}>{content.title}</h1>
+                                                        <p className={cx('content')}>{content.content}</p>
                                                     </div>
+                                                    <Round
+                                                        width= '80px'
+                                                        height= '80px'
+                                                        left= {'-15%'}
+                                                        bottom= {0}
+                                                        list
+                                                        children={content.id}
+                                                    />
                                                 </Grid>
                                             ))}
                                     </Grid>

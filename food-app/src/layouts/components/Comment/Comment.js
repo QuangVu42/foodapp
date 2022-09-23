@@ -38,7 +38,7 @@ function Comment(){
         }
     ]
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id="container">
                 <Swiper
                     centeredSlides={true}
@@ -59,7 +59,7 @@ function Comment(){
                                 <img src={comment.src} alt={comment.name} />
                             </div>
                             <div className={cx('comment')}>
-                                <h1>{comment.name}</h1>
+                                <h1 className={cx('title')}>{comment.name}</h1>
                                 <span>{comment.work}</span>
                                 <p>{comment.content}</p>
                             </div>
@@ -67,6 +67,7 @@ function Comment(){
                     ))}
                 </Swiper>
             </div>
+            <div id='blur-bacground'></div>
         </div>
     )
 }

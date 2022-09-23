@@ -26,7 +26,7 @@ function GlobalButton({
         props.href = href;
         Comp = 'a'
     }
-    const Classes = cx('warpper',{
+    const Classes = cx('wrapper',{
         primary,
         outline,
         small,

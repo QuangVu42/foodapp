@@ -18,7 +18,7 @@ const cx = classNames.bind(Styles)
 
 function Footer(){
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id='container'>
                 <div className={cx('header')}>
                     <h1 className={cx('header-title')}>food app</h1>

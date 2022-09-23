@@ -1,5 +1,6 @@
-.warpper{
+.wrapper{
     font-family: 'Courier Prime', monospace;
+    background-color: var(--grey);
     .title{
         text-transform: capitalize;
         text-align: center;
@@ -21,6 +22,30 @@
                     color: var(--red);
                 }
             }
+            .icon{
+                position: absolute;
+                top:100px;
+                font-size: 4rem;
+                color: var(--blue);
+                margin: 0 5px;
+                animation-delay: transform 0.2s linear;
+                animation: animate1 2s linear infinite;
+            }
+            .icon-one{
+                right: 0;
+            }
+            .icon-two{
+                left: 0;
+            }
         }
     }
+}
+@keyframes animate1 {
+	0% {
+		transform: translateX(-50%);
+	}
+	100% {
+        opacity: 0;
+		transform: translateX(80%);
+	}
 }

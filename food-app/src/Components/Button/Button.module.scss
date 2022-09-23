@@ -1,4 +1,4 @@
-.warpper{
+.wrapper{
     align-items: center;
     cursor: pointer;
     text-transform: capitalize;
@@ -62,6 +62,13 @@ li>.item:hover:after{
     font-size: 3rem;
     background: var(--black);
 	overflow: hidden;
+	transition: transform 0.2s linear;
+	&:hover{
+		transform:scale(1.1);
+	}
+	.icon{
+		color: var(--red);
+	}
 }
 .circle div span:nth-child(1) {
 	position: absolute;

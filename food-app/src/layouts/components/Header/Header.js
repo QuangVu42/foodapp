@@ -10,7 +10,7 @@ const cx = classNames.bind(Styles)
 
 function Header (){
     return(
-        <div className= {cx('warpper')}>
+        <div className= {cx('wrapper')}>
             <header className={cx('header')} id="container-header">
                 <div className={cx('header-navbar')}>
                         <img  className={cx('header-logo')} src={Logo} alt="don't logo" />

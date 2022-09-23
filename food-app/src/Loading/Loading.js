@@ -7,7 +7,7 @@ const cx = classNames.bind(Styles)
 
 function Loading (){
     return (
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('yellow')}></div>
                 <div className={cx('red')}></div>

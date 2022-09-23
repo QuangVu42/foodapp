@@ -40,7 +40,7 @@ function Slider(){
         }
     ]
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <Swiper
                 centeredSlides={true}
                 loop={true}
@@ -56,8 +56,7 @@ function Slider(){
             >
                 {Banners.map(banner=>(
                    <SwiperSlide key={banner.id}>
-                        <div className={cx('banner')}>
-                            <img src={banner.image} alt={banner.title}  className={cx('banner-img')} />
+                        <div className={cx('banner')} style={{backgroundImage:`url(${banner.image})`}}>
                             <div className={cx('content')} id='container-header' >
                                 <h1 className={cx('title')}>{banner.title}</h1>
                                 <p>{banner.content}</p>

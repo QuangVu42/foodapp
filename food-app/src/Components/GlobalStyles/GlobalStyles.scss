@@ -87,11 +87,14 @@ p{
     text-transform: capitalize;
     max-width: 100%;
     min-height: 8rem;
-    padding: 20px;
+    padding: 20px 0;
     border-bottom: 2px solid var(--blue);
     font-weight: 900;
     transition: all .25s ease-in-out;
     background: transparent;
+    position: relative;
+}
+#round{
     position: relative;
 }
 @mixin afterUnderlined {
@@ -108,7 +111,7 @@ p{
 }
 // edit swiper button
 .swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
-    bottom: 3em;
+    bottom: 1em;
 }
 .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
     height: 20px;

@@ -1,4 +1,64 @@
-.warpper{
+.wrapper{
     text-align: center;
     background-color: var(--grey);
+    font-family: 'Courier Prime', monospace;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .header{
+        margin: 50px 0;
+        .header-content{
+            .title{
+
+            }
+            p{
+                color: var(--blue);
+                font-size: 3.2rem;
+                span{
+                    color: var(--red);
+                }
+            }
+        }
+    }
+    .slide{
+        margin: 20px 0;
+        .box{
+            border: 1px solid var(--black);
+            border-top-left-radius: 5%;
+            border-top-right-radius: 5%;
+            .image{
+                background-color: var(--black);
+                border-top-left-radius: 5%;
+                border-top-right-radius: 5%;
+                img{
+                    height: 100%;
+                    padding: 20px;
+                    width: 80%;
+                }
+            }
+            .btn{
+                display: flex;
+                justify-content: center;
+                padding: 10px 20px 50px 20px;
+                background-color: var(--black);
+                border-bottom-left-radius: 50%;
+                border-bottom-right-radius: 50%;
+            }
+            .content{
+                h3{
+                    color: var(--yellow);
+                    text-transform: uppercase;
+                    margin: 20px 0
+                }
+                p{
+    
+                }
+                span{
+                    color: var(--red);
+                    font-size: 2rem;
+                }
+    
+            }
+        }
+    }
 }

@@ -27,73 +27,72 @@ function QualityProducts() {
             src: imgProduct1,
             title: 'crazy burger',
             content: 'Buarning do amet contur dicivt suia non nuameius velit',
-            price: '20.00'
+            price: '$20.00'
         },
         {
             id: 2,
             src: imgProduct2,
             title: 'beefcakes burgers',
             content: 'Buarning do amet contur dicivt suia non nuameius velit',
-            price: '25.00'
+            price: '$25.00'
         },
         {
             id: 3,
             src: imgProduct3,
             title: 'the cripy bun',
             content: 'Buarning do amet contur dicivt suia non nuameius velit',
-            price: '30.00'
+            price: '$30.00'
         },
         {
             id: 4,
             src: imgProduct4,
             title: 'bugout burgers',
             content: 'Buarning do amet contur dicivt suia non nuameius velit',
-            price: '25.00'
+            price: '$25.00'
         }
     ]
     
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <div id='container'>
-                <section>
-                    <div className={cx('content')}>
-                        <h1>quality products</h1>
+                <section className={cx('header')}>
+                    <div className={cx('header-content')}>
+                        <h1 className={cx('title')}>quality products</h1>
                         <p>Burger as expected <span>dilicious</span> one</p>
                     </div>
                 </section>
-                <section>
+                <section className={cx('slide')}>
                     <Swiper
-                        slidesPerView={3}
-                        spaceBetween={2}
+                        slidesPerView={4}
+                        spaceBetween={20}
                         // centeredSlides={true}
                         loop={true}
                         autoplay={{
                             delay: 4000,
                             disableOnInteraction: false,
                         }}
-                        pagination={{
-                            clickable: true,
-                        }}
                         modules={[Autoplay, Pagination]}
                         className="mySwiper"
                     >
                         {imgProducts.map((imgProduct, index)=>(
                             <SwiperSlide key={imgProduct.id}>
-                                <div className={cx('image')}>
-                                    <img src={imgProduct.src} alt="don't img" className={cx('img')} />
-                                </div>
-                                <div className={cx('btn')}>
-                                <Button 
-                                    primary
-                                    href="#" 
-                                    children={'order now'}
-                                    icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
-                                />
-                                </div>
-                                <div className={cx('content')}>
-                                    <h3>{imgProduct.title}</h3>
-                                    <p>{imgProduct.content}</p>
-                                    <span>{imgProduct.price}</span>
+                                <div className={cx('box')}>
+                                    <div className={cx('image')}>
+                                        <img src={imgProduct.src} alt="don't img" className={cx('img')} />
+                                    </div>
+                                    <div className={cx('btn')}>
+                                        <Button 
+                                            primary
+                                            href="#" 
+                                            children={'order now'}
+                                            icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
+                                        />
+                                    </div>
+                                    <div className={cx('content')}>
+                                        <h3>{imgProduct.title}</h3>
+                                        <p>{imgProduct.content}</p>
+                                        <span>{imgProduct.price}</span>
+                                    </div>
                                 </div>
                             </SwiperSlide>
                         ))}

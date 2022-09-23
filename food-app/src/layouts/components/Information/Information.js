@@ -1,4 +1,6 @@
 import classNames from 'classnames/bind'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 import Styles from './Information.module.scss'
 import Button from '../../../Components/Button/Button'
@@ -33,20 +35,22 @@ function Information(){
         }
     ]
     return(
-        <div className={cx('warpper')}>
+        <div className={cx('wrapper')}>
             <section className={cx('review')}>
                 <Button 
                     circle
                     href="#" 
                     children={'sandwich'}
-                    element={<div className={cx('box')}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                        </div>}
-                    // icon = {<FontAwesomeIcon icon={faPlay} className={cx('icon')} />}
-                    />
+                    element={
+                        <div className={cx('box')}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    }
+                    icon = {<FontAwesomeIcon icon={faYoutube} className={cx('icon')} /> }
+                />
             </section>
             <section className={cx('container')}>
                 <div id="container-header" className={cx('content')}>
