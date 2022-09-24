@@ -6,7 +6,7 @@ import Style from './Button.module.scss';
 const cx = classNames.bind(Style)
 
 function GlobalButton({
-    to, href, 
+    to, href,
     primary = false, item =false, itemLogo = false, 
     outline = false, small = false, large= false,
     circle = false,
@@ -30,10 +30,10 @@ function GlobalButton({
         primary,
         outline,
         small,
-        large,
         item,
         circle,
-        btnIcon
+        btnIcon,
+        element
     })
     return(
         <Comp className={Classes} {...props}>

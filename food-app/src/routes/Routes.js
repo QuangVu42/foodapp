@@ -1,11 +1,12 @@
-import Header from '../layouts/components/Header/Header'
-import Footer from '../layouts/components/Footer/Footer'
-import BestFood from '../layouts/components/BestFood/BestFood'
+import RoutesConfig from '../config/RoutesConfig'
+
 import Home from '../page/Home/Home'
+import Shop from '../page/Shop/Shop'
+import Login from '../page/Login/login'
 
 const publicRoutes = [
-    {path:'/', component: Home},
-    {path:'/Header', component: Header, layout: null},
-    {path:'/Footer', component: Footer, layout: BestFood}
+    {path: RoutesConfig.home, component: Home},
+    {path: RoutesConfig.shop, component: Shop},
+    {path: RoutesConfig.login, component: Login}
 ]
 export default publicRoutes

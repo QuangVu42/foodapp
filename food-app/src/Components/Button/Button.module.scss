@@ -144,7 +144,6 @@ li>.item:hover:after{
 		transform: translateY(-100%);
 	}
 }
-
 // icon
 .btnIcon{
 	font-size: 3rem;
@@ -154,5 +153,22 @@ li>.item:hover:after{
         	&:hover{
                 color: var(--red);
             }
+	}
+}
+// small
+.small{
+	height: 100%;
+	width: 100%;
+	font-size: 1.6rem;
+	border: 1px solid var(--white);
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	background: var(--blue);
+	svg{
+		margin: 0 5px;
+		font-size: 2.2rem;
+		color: var(--white);
 	}
 }

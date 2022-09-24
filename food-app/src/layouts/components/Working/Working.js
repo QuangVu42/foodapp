@@ -44,12 +44,12 @@ function Working(){
     ]
     setTimeout (() =>{
         function DeleteIcon () {
-           const a =  document.querySelectorAll('.Working_wrapper__n0-cK .Working_content__-ot9d .Working_slide-work__lma4W .Working_icon__qeXIk')
+           const a =  document.querySelectorAll('.Working_wrapper__gyhE1 .Working_content__-ot9d .Working_slide-work__lma4W .Working_icon__qeXIk')
             a[0].style.display = "none"
             a[a.length-1].style.display = "none"
         }
         DeleteIcon()
-    },200)
+    })
     return(
         <div className={cx('wrapper')}>
             <div id="container">

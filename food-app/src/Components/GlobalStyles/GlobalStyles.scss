@@ -97,6 +97,21 @@ p{
 #round{
     position: relative;
 }
+#btn-product{
+    padding: 5px;
+    box-shadow: none;
+    font-size: 1.7rem;
+    width: 30%;
+    background: var(--grey);
+    display: inline-flex;
+    margin: 10px 0;
+    color: var(--red);
+    letter-spacing: 0;
+}
+#btn-add{
+    box-shadow: none;
+    width: 50%;
+}
 @mixin afterUnderlined {
     content: '';
     width: 0%;
@@ -126,3 +141,4 @@ p{
     font-weight: 900;
     color: var(--blue);
 }
+

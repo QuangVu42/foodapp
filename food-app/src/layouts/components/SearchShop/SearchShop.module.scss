@@ -1,0 +1,57 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    .box{
+        .input{
+            
+            height: 30px;
+            height: 100%;
+            width: 100%;
+            border: 1px solid var(--blue);
+            border-radius: 20px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            input{
+                background: transparent;
+                padding: 10px 30px;
+                font-size: 1.4rem;
+                width: 95%;
+            }
+            .serach-icon{
+                width: 5%;
+                margin: 0 20px;
+                border-left: 1px solid var(--blue);
+                .icon{
+                    cursor: pointer;
+                    color: var(--black);
+                    transition: transform 0.4s linear;
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+        .icon-types{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            .icon1{
+                margin: 5px 20px;
+                font-size: 3rem;
+                color: var(--red);
+                display: flex;
+                cursor: pointer;
+                .icon{
+                    padding: 0 2px;
+                }
+            }
+            .icon2{
+                font-size: 4rem;
+                color: var(--black);
+                cursor: pointer;
+            }
+        }
+    }
+}

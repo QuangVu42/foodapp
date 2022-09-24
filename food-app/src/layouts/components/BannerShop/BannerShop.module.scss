@@ -1,0 +1,20 @@
+.wrapper{
+    background-image: url('../../../assets/images/banner.10879cd6.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    .banner-shop{
+        margin: 8rem 0;
+        .title{
+            font-size: 4rem;
+            color: var(--blue)
+        }
+        .content{
+            color: var(--yellow);
+        }
+    }
+}
