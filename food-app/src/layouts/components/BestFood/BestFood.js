@@ -92,7 +92,7 @@ function BestFood() {
                     <div className={cx('btn')}>
                         <Button 
                             primary
-                            href="#" 
+                            to={'/shop'} 
                             children={'order now'}
                             icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
                         />

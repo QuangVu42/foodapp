@@ -9,7 +9,7 @@ function GlobalButton({
     to, href,
     primary = false, item =false, itemLogo = false, 
     outline = false, small = false, large= false,
-    circle = false,
+    circle = false, login = false,
     element,btnIcon ,icon, children, onClick , ...passProps
 }){
     let Comp = 'button';
@@ -33,6 +33,7 @@ function GlobalButton({
         item,
         circle,
         btnIcon,
+        login,
         element
     })
     return(

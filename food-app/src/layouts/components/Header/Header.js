@@ -18,7 +18,7 @@ function Header (){
                             <li className={cx('navbar-item')}>
                                 <Button 
                                     item 
-                                    href="https://www.facebook.com/" 
+                                    to={'/'}  
                                     children={'page'} 
                                     icon={<FontAwesomeIcon icon={faHome} className={cx('icon')} />}
                                     />
@@ -26,7 +26,7 @@ function Header (){
                             <li className={cx('navbar-item')}>
                                 <Button 
                                     item 
-                                    href="https://www.facebook.com/" 
+                                    to={'/shop'} 
                                     children= {'order online'}
                                     icon = {<FontAwesomeIcon icon={faBurger}  className={cx('icon')} />}
                                     />
@@ -34,7 +34,7 @@ function Header (){
                             <li className={cx('navbar-item')}>
                                 <Button 
                                     item 
-                                    href="https://www.facebook.com/" 
+                                    to={'/'} 
                                     children ={'news'}
                                     icon = {<FontAwesomeIcon icon={faNewspaper}  className={cx('icon')} />}
                                 />
@@ -42,7 +42,7 @@ function Header (){
                             <li className={cx('navbar-item')}>
                                 <Button 
                                     item 
-                                    href="https://www.facebook.com/"
+                                    to={'/'} 
                                     children={'store localtions'} 
                                     icon={<FontAwesomeIcon icon={faStore}  className={cx('icon')} />}
                                 />
@@ -57,7 +57,7 @@ function Header (){
                             <div className={cx('account-icon')}>
                                 <FontAwesomeIcon icon={faUserAlt}  className={cx('icon')} />
                             </div>
-                            <Button item href="https://www.facebook.com/" children={'sign in'} />
+                            <Button item to={'/login'}  children={'sign in'} />
                         </div>
                 </div>
             </header>

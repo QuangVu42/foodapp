@@ -2,6 +2,8 @@
     box-shadow: var(--text-shadow-block);
     cursor: pointer;
     border-radius: 20px;
+    position: relative;
+    height: 400px;
     .image{
         img{
             height: 20rem;
@@ -41,9 +43,13 @@
             }
         }
         .btn{
-            display: flex;
             justify-content: space-between;
             align-items: center;
+            position: absolute;
+            bottom: 0;
+            right: 5%;
+            left: 5%;
+            display: flex;
         }
     }
 }

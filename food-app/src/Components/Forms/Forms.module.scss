@@ -1,0 +1,92 @@
+
+.container{
+    background: var(--background-form);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Courier Prime", monospace;
+    .wrapper{
+        box-shadow: var(--text-shadow-border);
+        padding:20px;
+        background-color: var(--white);
+        border-radius: 20px ;
+        .title{
+            img{
+                width: 30%;
+            }
+            h1{
+            }
+        }
+        .form{
+            text-align: center;
+            text-align: -webkit-center;
+            .form_item{
+                margin: 40px 0;
+                li{
+                    margin: 20px 0;
+                    .icon{
+                        color: var(--blue);
+                        margin-right: 20px;
+                        font-size: 2rem;
+                    }
+                    input{
+                        border-bottom: 1px solid var(--blue);
+                        background: transparent;
+                        font-size: 2rem;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
+        .network{
+            color: var(--blue);
+            margin-top: 40px;
+            .icon{
+                font-size: 25px;
+                margin: 0 10px;
+                cursor: pointer;
+                &:hover{
+                    color: var(--red);
+                }
+            }
+        }
+        .footer{
+            font-size: 1.6rem;
+            span{
+                color: var(--red);
+                cursor: pointer;
+                &:hover{
+                    color: var(--blue)
+                }
+            }
+        }
+    }
+}
+.container{
+    .signIn{
+        .form{
+            .form_item{
+                li.form_item-email, li.form_item-phone, li.from_item-comfirmPass{
+                    display: none;
+                }
+            }
+        }
+        .footer{
+            p.footer-signup{
+                display: none;
+            }
+        }
+    }
+}
+.container{
+    .signUp{
+        .footer{
+            p.footer-signin{
+                display: none;
+            }
+        }
+    }
+}

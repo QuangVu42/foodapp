@@ -62,7 +62,7 @@ function Slider(){
                                 <p>{banner.content}</p>
                                 <Button 
                                     primary
-                                    href="#" 
+                                    to={'/shop'} 
                                     children={'order now'}
                                     icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
                                 />
