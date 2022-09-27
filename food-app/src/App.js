@@ -1,6 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import {Suspense } from 'react'
-import { Fragment } from 'react'
+import {Suspense, Fragment } from 'react'
 
 import publicRoutes from '../src/routes/Routes'
 import Loading from './Loading/Loading'
@@ -13,22 +12,25 @@ function App() {
             <div className="App">
                 <Routes>
                     {publicRoutes.map((route, index) => {
-                        const Page = route.component;
-                        let Layout = DefaultLayout
+                        const Page = route.component
+                        var Layout = DefaultLayout 
                         let ele = <Layout childern={<Page />}></Layout>
 
                         if (route.layout) {
                             Layout = route.layout;
-
+                            ele = <Layout><Page /></Layout>
+                             
                         } else if (route.layout === null) {
                             Layout = Fragment;
-                            ele = <Layout><Page /></Layout>
+                            ele =  <Layout><Page /></Layout> 
                         }
+
                         return (
                             <Route
                                 key={index}
                                 path={route.path}
-                                element = {ele}
+                                element= { ele }
+
                             />
                         );
                     })}
