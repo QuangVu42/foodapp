@@ -49,7 +49,7 @@ function Working(){
             a[a.length-1].style.display = "none"
         }
         DeleteIcon()
-    })
+    },1000)
     return(
         <div className={cx('wrapper')}>
             <div id="container">

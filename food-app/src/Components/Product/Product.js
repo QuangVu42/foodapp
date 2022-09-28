@@ -1,17 +1,24 @@
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faDollar, faCartShopping } from '@fortawesome/free-solid-svg-icons'
-
+import { Link } from 'react-router-dom';
+import { Fragment } from 'react';
 import Button from '../Button/Button'
 import Style from './Product.module.scss'
 
 const cx = classNames.bind(Style)
 
 function Product({
-    img,number,title,content,address,price, 
+    to,
+    img, name, dsc, country, price, rate, 
     columnTwo, columnThree, columnFour,
     ...passProps
 }){
+    let Comp = 'div'
+    if(to){
+        Comp = Link
+    }
+
     const props = {
         ...passProps
     }
@@ -24,18 +31,22 @@ function Product({
     // <span>{number}</span>
     return(
         <div className= {Classes} {...props}>
-            <section className={cx('image')}>
-                <img src={img} alt='not' className={cx('img')} />
-            </section>
-            <section className={cx('content')}>
-                <h3>{title}</h3>
-                <p>{content}</p>
-                <div className={cx('box')}>
-                    <p className={cx('box-address')}>
-                        <FontAwesomeIcon icon={faLocationDot}  className={cx('icon')} />
-                        {address}
-                    </p>
-                </div>
+           <Comp to={to} state={{img, name, dsc, country, price, rate}}>
+                <section className={cx('image')}>
+                    <img src={img} alt='not' className={cx('img')} />
+                </section>
+                <section className={cx('content')}>
+                    <h3>{name}</h3>
+                    <p>{dsc}</p>
+                    <div className={cx('box')}>
+                        <p className={cx('box-address')}>
+                            <FontAwesomeIcon icon={faLocationDot}  className={cx('icon')} />
+                            {country}
+                        </p>
+                    </div>
+                </section>
+           </Comp>
+            <section className={cx('footer')}>
                 <div className={cx('btn')}>
                     <Button 
                         id="btn-product"

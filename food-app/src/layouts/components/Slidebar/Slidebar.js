@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
@@ -12,7 +13,7 @@ import Style from './Slidebar.module.scss'
 
 const cx = classNames.bind(Style)
 
-function Slidebar(){
+function Slidebar(props){
 
     const Icons = [
         {
@@ -82,6 +83,7 @@ function Slidebar(){
             content:'&up'
         }
     ]
+
     return(
         <div className={cx('wrapper')}>
             <div className={cx('slidebar')}>
@@ -89,7 +91,7 @@ function Slidebar(){
                     <h1 className={cx('title')}>popular</h1>
                     {Icons.map(icon=>(
                         <ul key={icon.id} className={cx('item')}>
-                            <li className={cx('item-list')}>
+                            <li className={cx('item-list')}  onClick={()=> props.changeFilters(icon.content)} >
                                 <img src={icon.icon} alt={icon.content} />
                                 <p>{icon.content}</p>
                             </li>

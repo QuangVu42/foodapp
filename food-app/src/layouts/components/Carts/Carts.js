@@ -4,35 +4,64 @@ import Grid from '@mui/material/Grid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faCartShopping, faMinus, faTruck , faPlus, faStar as Starfullcolor, faTag} from '@fortawesome/free-solid-svg-icons'
 import { faHeart, faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
+import { useLocation } from 'react-router-dom'
+import ReactImageMagnify from 'react-image-magnify';
 
 import Styles from './Carts.module.scss'
-import BannerShop from '../BannerShop/BannerShop'
 import Button from '../../../Components/Button/Button'
-import img from  '../../../assets/images/demo.avif'
+
 const cx = classNames.bind(Styles)
 
 function Carts() {
+    const location = useLocation()
+    const { img, name, dsc, country, price, rate } = location.state
+
     return(
         <div className={cx('wrapper')}>
-            <BannerShop />
             <section className={cx('carts')}>
-               <div id="container">
+               <div id="container-header">
                     <Box sx={{flexGrow:2}} className={cx('box')}>
                         <Grid container spacing={3}>
                             <Grid item xs={6} className={cx('image')}>
-                                <img src={img} alt='not' />
+                                <ReactImageMagnify {...{
+                                    smallImage: {
+                                        alt: name,
+                                        isFluidWidth: true,
+                                        src: img
+                                    },
+                                    largeImage: {
+                                        src: img,
+                                        width: 1200,
+                                        height: 1800
+                                    }
+                                }} />
+                                <div className={cx('image-change')}>
+                                    <div className={cx('img')}>
+                                        <img src={img} alt='not' />
+                                    </div>
+                                    <div className={cx('img')}>
+                                        <img src={img} alt='not' />
+                                    </div>
+                                    <div className={cx('img')}>
+                                        <img src={img} alt='not' />
+                                    </div> 
+                                    <div className={cx('img')}>
+                                        <img src={img} alt='not' />
+                                    </div> 
+                                </div>
                             </Grid>
                             <Grid item xs={6} className={cx('content')}>
-                                <h1 className={cx('title')}>alidoro</h1>
+                                <h1 className={cx('title')}>{name}</h1>
                                 <span>
-                                    {[...Array(5)].map((e,index)=>(<FontAwesomeIcon icon={Starfullcolor} className={cx('vote')} key ={index} />))}
+                                    {[...Array(rate)].map((e,index)=>(<FontAwesomeIcon icon={Starfullcolor} className={cx('vote')} key ={index} />))}
+                                    {[...Array(5-rate)].map((e,index)=>(<FontAwesomeIcon icon={Starcolorborder} className={cx('noVote')} key ={index} />))}
                                 </span>
-                                <div className={cx('price')}>$66.90</div>
+                                <div className={cx('price')}>${price}</div>
                                 <div className={cx('content-infor')}>
-                                    <p><span>category:</span> sandwiches</p>
-                                    <p><span>county:</span> new york, ny</p>
+                                    <p><span>category:</span> best food</p>
+                                    <p><span>county:</span> {country}</p>
                                 </div>
-                                <p>italian sandwich kit best sellers-4 pack</p>
+                                <p>{dsc}</p>
                                 <div className={cx('content-add')}>
                                     <div className={cx('content-btn')}>
                                         <button type="button" className={cx('btn')}>

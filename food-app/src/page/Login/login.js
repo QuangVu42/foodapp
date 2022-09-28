@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{lazy} from 'react'
 
-import SignIn from "../../layouts/components/SignIn/SignIn"
+//modules
+const SignIn = lazy(()=>import("../../layouts/components/SignIn/SignIn"))
 
 function Login(){
     return(

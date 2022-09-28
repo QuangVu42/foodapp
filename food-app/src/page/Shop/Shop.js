@@ -1,17 +1,43 @@
-import React from 'react'
+import React, {useEffect, useState, lazy} from 'react'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
-import BannerShop from "../../layouts/components/BannerShop/BannerShop"
-import Slidebar from '../../layouts/components/Slidebar/Slidebar'
-import SearchShop from '../../layouts/components/SearchShop/SearchShop'
-import ProductShop from '../../layouts/components/ProductShop/ProductShop'
 import Styles from './Shop.module.scss'
+import productApi from '../../apis/productApis'
+
+// modules
+const BannerShop = lazy(()=> import("../../layouts/components/BannerShop/BannerShop"))
+const Slidebar = lazy(()=> import('../../layouts/components/Slidebar/Slidebar'))
+const SearchShop = lazy(()=> import('../../layouts/components/SearchShop/SearchShop'))
+const ProductShop = lazy(()=> import('../../layouts/components/ProductShop/ProductShop'))
 
 const cx = classNames.bind(Styles)
 
 function Shop () {
+
+    // Product
+    // const [burgers, setBurger] = useState([])
+    // const [breads, setBreads] = useState([])
+    // const [sandwiches, setSandwiches] = useState([])
+    // const [drinks, setDrinks] = useState([])
+    // const [pizzas, setPizzas] = useState([])
+    const [products,setProducts] = useState([])
+
+    const [filters, setFilters] = useState('burgers')
+    const [loading , setLoading] = useState(true)
+
+    useEffect(()=>{
+        const fetchApi = async () =>{
+             setLoading(true)
+
+             const result = await productApi(filters)
+             setProducts(result)
+
+             setLoading(false)
+        }
+        fetchApi()
+    },[filters])
     return(
         <div className={cx('wrapper')}>
             <BannerShop />
@@ -20,7 +46,7 @@ function Shop () {
                     <div className={cx('shop-content')}>
                         <Grid container spacing={0}>
                             <Grid item xs={2}>
-                                <Slidebar />
+                                <Slidebar changeFilters={ filters => setFilters(filters)} />
                             </Grid>
                             <Grid item xs={10}>
                                 <div className={cx('shop-product')}>
@@ -28,7 +54,7 @@ function Shop () {
                                         <SearchShop />
                                     </section>
                                     <section className={cx('product')}>
-                                        <ProductShop />
+                                        <ProductShop props={products} />
                                     </section>
                                 </div>
                             </Grid>

@@ -14,6 +14,7 @@
     }
     .content{
         padding: 0 10px;
+        color: var(--black);
         h3{
             text-transform: capitalize;
             font-weight: 900;
@@ -42,6 +43,8 @@
                 }
             }
         }
+    }
+    .footer{
         .btn{
             justify-content: space-between;
             align-items: center;

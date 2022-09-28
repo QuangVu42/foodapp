@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {lazy} from 'react'
 
-import Slider from '../../layouts/components/Slider/Slider'
-import Working from '../../layouts/components/Working/Working'
-import Ingredients from '../../layouts/components/Ingredients/Ingredients'
-import BestFood from '../../layouts/components/BestFood/BestFood'
-import Delivery from '../../layouts/components/Delivery/Delivery'
-import QualityProducts from '../../layouts/components/QualityProducts/QualityProducts'
-import Information from '../../layouts/components/Information/Information'
-import Comment from '../../layouts/components/Comment/Comment'
+// modules
+const Slider = lazy(()=>import('../../layouts/components/Slider/Slider'))
+const Working = lazy(()=>import('../../layouts/components/Working/Working'))
+const Ingredients = lazy(()=> import('../../layouts/components/Ingredients/Ingredients'))
+const BestFood = lazy(()=> import('../../layouts/components/BestFood/BestFood'))
+const Delivery = lazy(()=> import('../../layouts/components/Delivery/Delivery'))
+const QualityProducts = lazy(()=> import('../../layouts/components/QualityProducts/QualityProducts'))
+const Information = lazy(()=> import('../../layouts/components/Information/Information'))
+const Comment = lazy(()=> import('../../layouts/components/Comment/Comment'))
 
 function Home(){
     return(

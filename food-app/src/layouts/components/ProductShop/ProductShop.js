@@ -2,43 +2,19 @@ import React, {useEffect, useState} from 'react'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/box'
 import Grid from '@mui/material/grid'
-import ReactPaginate from 'react-paginate';
-import {Fragment} from 'react';
+import LazyLoad from 'react-lazyload'
 
 import Product from '../../../Components/Product/Product';
 import Styles from './Product.module.scss'
-import productApi from '../../../apis/productApis'
 import Pagination from '../../../Components/Pagination/Pagination'
 
 const cx = classNames.bind(Styles)
 
-function ProductShop(){
+function ProductShop({props}){
+     const products = props
 
-     // Product
-     const [burgers, setBurger] = useState([])
-     // const [breads, setBreads] = useState([])
-     // const [sandwiches, setSandwiches] = useState([])
-     // const [drinks, setDrinks] = useState([])
-     // const [pizzas, setPizzas] = useState([])
-
-     const [filters, setFilters] = useState({})
-     const [loading , setLoading] = useState(true)
      const [currentPage, setCurrentPage] = useState(1)
      const [postsPerPage] = useState(16)
-
-     useEffect(()=>{
-          const fetchApi = async () =>{
-               setLoading(true)
-
-               const result = await productApi('burgers')
-               setBurger(result)
-
-               setLoading(false)
-          }
-          fetchApi()
-      },[filters])
-
-     const products = burgers
 
      // so data luong hien thi tren 1 page
      const indexOfLastPost = currentPage * postsPerPage
@@ -55,15 +31,18 @@ function ProductShop(){
                     <Grid container spacing={3} >
                     {currentPosts.map((product,index) =>(
                          <Grid item xs={3} key={index}>
-                              <Product
-                                   columnFour 
-                                   img={product.img}
-                                   title={product.name}
-                                   content= {product.dsc}
-                                   address={product.country}
-                                   price={product.price}
-                                   number={product.rate}
-                              />
+                             <LazyLoad>
+                                   <Product
+                                        columnFour 
+                                        img={product.img}
+                                        name={product.name}
+                                        dsc= {product.dsc}
+                                        country={product.country}
+                                        price={product.price}
+                                        rate={product.rate}
+                                        to={'/cart'}
+                                   />
+                             </LazyLoad>
                     </Grid>
                     ))}
                     </Grid>

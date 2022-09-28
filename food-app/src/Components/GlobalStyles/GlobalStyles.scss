@@ -15,7 +15,7 @@ body{
     font-size: 1.6rem;
     text-rendering: optimizeLegibility;
 }
-input,button{
+input,button, textarea{
     outline: none;
     border: none;
 }
@@ -50,6 +50,10 @@ ul,li{
 h1{
     text-transform: capitalize;
     font-size: 3.2rem;
+}
+h2{
+    text-transform: capitalize;
+    font-size: 2.2rem;
 }
 p{
     text-transform: capitalize;
