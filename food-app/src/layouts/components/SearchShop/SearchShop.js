@@ -1,4 +1,4 @@
-// import { useEffect, useState} from 'react'
+import { useState } from 'react'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -11,6 +11,9 @@ import Styles from './SearchShop.module.scss'
 const cx = classNames.bind(Styles)
 
 function SearchShop(){
+
+    const [iconActive1, setIconActive1] = useState(true)
+    const [iconActive2, setIconActive2] = useState(false)
     return (
         <div className={cx('wrapper')}>
             <Box sx={{flexGrow:2}} className={cx('box')}>
@@ -34,11 +37,22 @@ function SearchShop(){
                    </Grid>
                     <Grid item xs={1}>
                         <section className={cx('icon-types')}>
-                            <div className={cx('icon1')}>
+                            <div className={iconActive1 ? cx('icon1','active'): cx('icon1')}
+                                onClick= {()=> {
+                                    setIconActive1(true) 
+                                    setIconActive2(false)
+                                }}
+                            >
                                 <FontAwesomeIcon icon={faGripVertical} className={cx('icon')} />
                                 <FontAwesomeIcon icon={faGripVertical} className={cx('icon')} />
                             </div>
-                            <FontAwesomeIcon icon={faGripHorizontal} className={cx('icon2')} />
+                            <FontAwesomeIcon icon={faGripHorizontal} 
+                                className={iconActive2 ? cx('icon2','active'): cx('icon2')} 
+                                onClick= {()=> {
+                                    setIconActive1(false) 
+                                    setIconActive2(true)
+                                }}
+                            />
                         </section>
                     </Grid>
                </Grid>

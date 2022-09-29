@@ -1,6 +1,5 @@
 .wrapper{
     background: transparent;
-    box-shadow: var(--text-shadow-block);
     position: fixed;
     top: 0;
     right: 0;
@@ -61,4 +60,8 @@
             }
         }
     }
+}
+.active{
+    background: var(--black);
+    box-shadow: var(--text-shadow-block);
 }

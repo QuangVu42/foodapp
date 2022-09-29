@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faBurger, faStore, faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
@@ -9,8 +10,22 @@ import Button from '../../../Components/Button/Button'
 const cx = classNames.bind(Styles)
 
 function Header (){
+
+    const [background, setBackground] = useState(false)
+
+    useEffect(()=>{
+        const changeBackground = () =>{
+            if(window.scrollY>=200){
+                setBackground(true)
+            }else{
+                setBackground(false)
+            }
+        }
+        window.addEventListener('scroll', changeBackground)
+    })
+
     return(
-        <div className= {cx('wrapper')}>
+        <div className= { background ? cx('wrapper','active') : cx('wrapper')}>
             <header className={cx('header')} id="container-header">
                 <div className={cx('header-navbar')}>
                         <img  className={cx('header-logo')} src={Logo} alt="don't logo" />

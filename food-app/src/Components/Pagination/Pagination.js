@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classNames from 'classnames/bind'
 
 import Styles from './Pagination.module.scss'
@@ -6,6 +6,9 @@ import Styles from './Pagination.module.scss'
 const cx = classNames.bind(Styles)
 
 function Pagination({postsPerPage, totalPosts, paginate}){
+
+    const [page, setPage] = useState(1)
+
     const pageNumbers = []
     for(let i = 0; i <= Math.ceil( totalPosts / postsPerPage); i++){
         pageNumbers.push(i+1)
@@ -16,7 +19,12 @@ function Pagination({postsPerPage, totalPosts, paginate}){
             <ul  className={cx('pagination')}>
                 {pageNumber.map((number,index)=>(
                     <li key ={index} className={cx('page-item')}>
-                        <a href="#" className={cx('page-link')} onClick={()=> paginate(number)}>
+                        <a href="#" className={page === number ? cx('page-link','active') : cx('page-link')} 
+                            onClick={()=>{
+                                setPage(number)
+                                paginate(number)
+                            }}
+                        >
                             {number}
                         </a>
                     </li>

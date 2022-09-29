@@ -14,6 +14,36 @@
         align-items: center;
         background: transparent;
         flex:1;
+        .video{
+            background: var(--black);
+            height: 100%;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .5s;
+            transform: translateY(100%);
+        }
+        .video-active{
+            transform: translateY(0);
+        }
+        .span{
+            position: fixed;
+            top: 10%;
+            right: 10%;
+            width: 30px;
+            height: 30px;
+            font-size: 5rem;
+            color: var(--blue);
+            z-index: 5;
+            cursor: pointer;
+        }
+        .background-active{
+            display: block;
+        }
     }
     .container{
         background-color: var(--red);

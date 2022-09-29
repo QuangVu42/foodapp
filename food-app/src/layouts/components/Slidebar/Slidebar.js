@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, createRef} from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
 import { faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
+import { LazyLoad} from 'react-lazyload'
 
 import Burgers from '../../../assets/svgs/burger.e4646d9c.svg'
 import Breads from '../../../assets/svgs/bread.3829698f.svg'
@@ -47,22 +48,22 @@ function Slidebar(props){
         {
             id:1,
             price: 'under $1000',
-            type: 'checkbox'
+            type: 'radio'
         },
         {
             id:2,
             price: '$50 to $100',
-            type: 'checkbox'
+            type: 'radio'
         },
         {
             id:3,
             price: 'Under $50',
-            type: 'checkbox'
+            type: 'radio'
         },
         {
             id:4,
             price: 'above $100',
-            type: 'checkbox'
+            type: 'radio'
         }
     ]
 
@@ -84,6 +85,12 @@ function Slidebar(props){
         }
     ]
 
+    const [icons, setIcons] = useState('Burgers')
+    const [pricesup, setPriceup]= useState(false)
+    const [pricesId, setPriceId] = useState(0) 
+    const [rateup, setRateup] = useState(0)
+    const [checked, setChecked] = useState(false)
+ 
     return(
         <div className={cx('wrapper')}>
             <div className={cx('slidebar')}>
@@ -91,7 +98,18 @@ function Slidebar(props){
                     <h1 className={cx('title')}>popular</h1>
                     {Icons.map(icon=>(
                         <ul key={icon.id} className={cx('item')}>
-                            <li className={cx('item-list')}  onClick={()=> props.changeFilters(icon.content)} >
+                            <li className={icons === icon.content ? cx('item-list','active') : cx('item-list')}  
+                                onClick={()=> {
+                                    props.changeFilters(icon.content)
+                                    setIcons(icon.content)
+                                    setPriceId(0)
+                                    setPriceup(false)
+                                    setRateup(0)
+                                    setChecked(false)
+                                    props.changePriceId(0)
+                                    props.changeRateNumber(0)
+                                }}
+                            >
                                 <img src={icon.icon} alt={icon.content} />
                                 <p>{icon.content}</p>
                             </li>
@@ -102,8 +120,20 @@ function Slidebar(props){
                         <h1 className={cx('title')}>Price</h1>
                         {Prices.map((price=>(
                             <ul key={price.id} className={cx('item')}>
-                                <li className={cx('item-list')}>
-                                    <input type={price.type} />
+                                <li className={ 
+                                    pricesup && pricesId === price.id ? cx('item-list', 'active') : cx('item-list')}
+                                >
+                                    <input 
+                                        type={price.type} 
+                                        name= "price"
+                                        onClick={()=> {
+                                            setPriceup(true)
+                                            setPriceId(price.id)
+                                            props.changePriceId(price.id)
+                                            setChecked(true)
+                                        }}
+                                        checked= {pricesup && pricesId== price.id ? checked : ''}
+                                    />
                                     <p>{price.price}</p>
                                 </li>
                             </ul>
@@ -113,7 +143,12 @@ function Slidebar(props){
                         <h1 className={cx('title')}>rate</h1>
                         {Rates.map((rate=>(
                             <ul key={rate.id} className={cx('item')}>
-                                <li className={cx('item-list')}>
+                                <li className={rateup === rate.number ? cx('item-list','active') : cx('item-list')}
+                                    onClick={()=> {
+                                        setRateup(rate.number)
+                                        props.changeRateNumber(rate.number)
+                                    }}
+                                >
                                     {[...Array(rate.number)].map((e,i)=><FontAwesomeIcon icon={Starfullcolor} className={cx('vote')} key={i} />)}
                                     {[...Array(5-rate.number)].map((e,i)=><FontAwesomeIcon icon={Starcolorborder} className={cx('noVote')} key={i} />)}
                                     

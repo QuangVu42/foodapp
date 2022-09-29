@@ -1,9 +1,11 @@
 import classNames from 'classnames/bind'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { faYoutube } from '@fortawesome/free-brands-svg-icons'
+import {  faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faX} from '@fortawesome/free-solid-svg-icons'
 
 import Styles from './Information.module.scss'
 import Button from '../../../Components/Button/Button'
+import { useEffect, useState } from 'react'
 
 const cx = classNames.bind(Styles)
 function Information(){
@@ -34,12 +36,14 @@ function Information(){
             augment: false,
         }
     ]
+
+    const [video, setVideo] = useState(false)
+
     return(
         <div className={cx('wrapper')}>
             <section className={cx('review')}>
                 <Button 
-                    circle
-                    href="#" 
+                    circle 
                     children={'sandwich'}
                     element={
                         <div className={cx('box')}>
@@ -50,7 +54,26 @@ function Information(){
                         </div>
                     }
                     icon = {<FontAwesomeIcon icon={faYoutube} className={cx('icon')} /> }
+                    onClick= {() => setVideo(true)} 
                 />
+                <div className={video ? cx('video','video-active') :cx('video')}>
+                    <iframe
+                        width={760}
+                        height={415}
+                        src="https://www.youtube.com/embed/G9Mj9BO-r1c"
+                        title="YouTube video player"
+                        frameBorder={0}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen=""
+                    ></iframe>
+                    <span 
+                        className={ cx('span')}
+                        onClick={ () => setVideo(false)}
+                    >
+                        <FontAwesomeIcon icon={faX} className={cx('icon')} />
+                    </span>
+                </div>
+              
             </section>
             <section className={cx('container')}>
                 <div id="container-header" className={cx('content')}>

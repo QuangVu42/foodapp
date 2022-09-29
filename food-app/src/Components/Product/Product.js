@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faDollar, faCartShopping } from '@fortawesome/free-solid-svg-icons'
+import { faLocationDot, faDollar, faCartShopping, faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { Fragment } from 'react';
 import Button from '../Button/Button'
@@ -72,6 +72,10 @@ function Product({
                     />
                 </div>
             </section>
+            <span className={cx('rate')}>
+                <FontAwesomeIcon icon={faStar}  className={cx('icon')} />
+                {rate}
+            </span>
         </div>
     )
 }

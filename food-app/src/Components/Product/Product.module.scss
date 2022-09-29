@@ -5,6 +5,7 @@
     position: relative;
     height: 400px;
     .image{
+
         img{
             height: 20rem;
             width: 100%;
@@ -53,6 +54,17 @@
             right: 5%;
             left: 5%;
             display: flex;
+        }
+    }
+    .rate{
+        position:absolute;
+        color: var(--red-dark);
+        top: 0;
+        right: 0;
+        font-size: 3rem;
+        font-weight: 900;
+        .icon{
+            font-size: 2rem;
         }
     }
 }

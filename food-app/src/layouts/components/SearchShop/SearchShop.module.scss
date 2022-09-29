@@ -40,7 +40,6 @@
             .icon1{
                 margin: 5px 20px;
                 font-size: 3rem;
-                color: var(--red);
                 display: flex;
                 cursor: pointer;
                 .icon{
@@ -49,8 +48,10 @@
             }
             .icon2{
                 font-size: 4rem;
-                color: var(--black);
                 cursor: pointer;
+            }
+            .active{
+                color: var(--red);
             }
         }
     }
