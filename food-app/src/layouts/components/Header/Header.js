@@ -28,7 +28,7 @@ function Header (){
         <div className= { background ? cx('wrapper','active') : cx('wrapper')}>
             <header className={cx('header')} id="container-header">
                 <div className={cx('header-navbar')}>
-                        <img  className={cx('header-logo')} src={Logo} alt="don't logo" />
+                        <img  className={cx('header-logo')} src={Logo} alt="Error" />
                         <ul className={cx('navbar')}>
                             <li className={cx('navbar-item')}>
                                 <Button 
@@ -66,7 +66,8 @@ function Header (){
                 </div>
                 <div className={cx('header-right')}>
                         <div className={cx('navbar-cart')}>
-                            <FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />
+                            <Button item to={'/cart'}  icon={<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />} />
+                            <span className={cx('cart-number')}>1</span>
                         </div>
                         <div className={cx('navbar-account')}>
                             <div className={cx('account-icon')}>

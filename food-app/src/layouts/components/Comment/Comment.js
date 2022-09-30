@@ -56,7 +56,7 @@ function Comment(){
                     {comments.map((comment)=>(
                         <SwiperSlide key={comment.id}>
                             <div className={cx('image')}>
-                                <img src={comment.src} alt={comment.name} />
+                                <img src={comment.src} alt="Error"  />
                             </div>
                             <div className={cx('comment')}>
                                 <h1 className={cx('title')}>{comment.name}</h1>

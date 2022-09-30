@@ -2,7 +2,7 @@ import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faDollar, faCartShopping, faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
-import { Fragment } from 'react';
+
 import Button from '../Button/Button'
 import Style from './Product.module.scss'
 
@@ -10,8 +10,9 @@ const cx = classNames.bind(Style)
 
 function Product({
     to,
+    border,
     img, name, dsc, country, price, rate, 
-    columnTwo, columnThree, columnFour,
+    item, columnTwo, columnThree, columnFour,
     ...passProps
 }){
     let Comp = 'div'
@@ -25,26 +26,34 @@ function Product({
     const Classes= cx('wrapper',{
         columnFour,
         columnThree,
-        columnTwo
+        columnTwo, 
+        item,
     })
-    // <div>favourite</div>
-    // <span>{number}</span>
+    
     return(
-        <div className= {Classes} {...props}>
+        <div className= {Classes} {...props} style={{borderBottom:(border ? "1px solid var(--blue)": "" )}}>
            <Comp to={to} state={{img, name, dsc, country, price, rate}}>
-                <section className={cx('image')}>
-                    <img src={img} alt='not' className={cx('img')} />
-                </section>
-                <section className={cx('content')}>
-                    <h3>{name}</h3>
-                    <p>{dsc}</p>
-                    <div className={cx('box')}>
-                        <p className={cx('box-address')}>
-                            <FontAwesomeIcon icon={faLocationDot}  className={cx('icon')} />
-                            {country}
-                        </p>
-                    </div>
-                </section>
+                <div className= {cx('header')}>
+                    <section className={cx('image')}>
+                        <img src={img} alt='Error' className={cx('img')} />
+                    </section>
+                    <section className={cx('content')}>
+                        <h3>
+                            {name}
+                            <span className={cx('rate')}>
+                                <FontAwesomeIcon icon={faStar}  className={cx('icon')} />
+                                {rate}
+                            </span>
+                        </h3>
+                        <p>{dsc}</p>
+                        <div className={cx('box')}>
+                            <p className={cx('box-address')}>
+                                <FontAwesomeIcon icon={faLocationDot}  className={cx('icon')} />
+                                {country}
+                            </p>
+                        </div>
+                    </section>
+                </div>
            </Comp>
             <section className={cx('footer')}>
                 <div className={cx('btn')}>

@@ -3,6 +3,7 @@ import classNames from 'classnames/bind'
 import Styles from './Loading.module.scss'
 
 import loadingFoodGif from  '../assets/images/loading-food.gif'
+
 const cx = classNames.bind(Styles)
 
 function Loading (){
@@ -14,7 +15,7 @@ function Loading (){
                 <div className={cx('blue')}></div>
                 <div className={cx('violet')}></div>
             </div>
-            <img src={loadingFoodGif} alt=" don't images" className={cx('images-loading')} />
+            <img src={loadingFoodGif} alt="Error" className={cx('images-loading')} />
             <h1>food app</h1>
         </div>
     )

@@ -7,6 +7,7 @@
         color: var(--blue);
     }
     .content{
+        margin-bottom: 70px;
         .header{
             display: flex;
             align-items: center;
@@ -53,6 +54,45 @@
         }
         .btn{
             
+        }
+    }
+    .show_comment{
+        margin: 20px 0;
+        .user{
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            .user-icon{
+                width: 40px;
+                height: 40px;
+                display: flex;
+                overflow: hidden;
+                position: relative;
+                align-items: center;
+                flex-shrink: 0;
+                -webkit-user-select: none;
+                user-select: none;
+                border-radius: 50%;
+                justify-content: center;
+                background-color: #bdbdbd;
+                color: var(--white);
+            }
+            .name{
+                text-transform: capitalize;
+                font-weight:900;
+                margin-right: 10px;
+                margin-left: 5px;
+            }
+            .vote{
+                color: var(--yellow);
+            }
+        }
+        .show_comment-content{
+            display: flex;
+            padding: 20px;
+            background: var(--grey);
+            font-family: 900;
+            border-radius: 20px;
         }
     }
 }

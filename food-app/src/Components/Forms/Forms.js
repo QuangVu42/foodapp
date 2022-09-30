@@ -28,7 +28,7 @@ function Forms({
         <div className={cx('container')}>
             <div className={Classes} {...props}>
                 <div className={cx('title')}>
-                    <img src={img} alt='not' />
+                    <img src={img} alt= 'Error' />
                     <h1>{title}</h1>
                 </div>
                 <div className={cx('form')}>

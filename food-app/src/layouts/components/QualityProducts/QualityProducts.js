@@ -12,7 +12,6 @@ import imgProduct2 from '../../../assets/images/product-2.png'
 import imgProduct3 from '../../../assets/images/product-3.png'
 import imgProduct4 from '../../../assets/images/product-4.png'
 
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -78,7 +77,7 @@ function QualityProducts() {
                             <SwiperSlide key={imgProduct.id}>
                                 <div className={cx('box')}>
                                     <div className={cx('image')}>
-                                        <img src={imgProduct.src} alt="don't img" className={cx('img')} />
+                                        <img src={imgProduct.src} alt="Error" className={cx('img')} />
                                     </div>
                                     <div className={cx('btn')}>
                                         <Button 

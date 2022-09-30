@@ -10,11 +10,11 @@ import Pagination from '../../../Components/Pagination/Pagination'
 
 const cx = classNames.bind(Styles)
 
-function ProductShop({props}){
+function ProductShop({props,layout}){
      const products = props
 
      const [currentPage, setCurrentPage] = useState(1)
-     const [postsPerPage] = useState(16)
+     const [postsPerPage,setPostsPerPage] = useState(16)
 
      // so data luong hien thi tren 1 page
      const indexOfLastPost = currentPage * postsPerPage
@@ -23,14 +23,23 @@ function ProductShop({props}){
 
      // change page
      const paginate = (pageNumber) => setCurrentPage(pageNumber)
+     
+     // set postsPerPage
+     useEffect(() =>{
+          if(layout){
+               setPostsPerPage(16)
+          }else{
+              setPostsPerPage(15)
+          }
+     },[layout])
 
     return(
      <div className={cx('wrapper')}>
           <div className={cx('product')}>
                <Box sx={{flexGrow:2}} className={cx('box')}>
-                    <Grid container spacing={3} >
+                    <Grid container >
                     {currentPosts.map((product,index) =>(
-                         <Grid item xs={3} key={index}>
+                         <Grid item xs={layout ? 3 : 4 } key={index} className={layout ? cx('three') : cx('four')}>
                              <LazyLoad>
                                    <Product
                                         columnFour 
@@ -40,7 +49,7 @@ function ProductShop({props}){
                                         country={product.country}
                                         price={product.price}
                                         rate={product.rate}
-                                        to={'/cart'}
+                                        to={'/detail'}
                                    />
                              </LazyLoad>
                     </Grid>

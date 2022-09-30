@@ -9,6 +9,7 @@ import Styles from './Delivery.module.scss'
 import imgDelivery from '../../../assets/svgs/big-delivery.e0228901.svg'
 import iconDelivery from '../../../assets/svgs/small-delivery.5b86892b.svg'
 import Button from '../../../Components/Button/Button'
+
 const cx = classNames.bind(Styles)
 
 function Delivery(){
@@ -27,7 +28,7 @@ function Delivery(){
                                         With glazed frontage on two sides of the building, overlooking the market and a bustling London inteon.</p>
                                     </div>
                                     <div className={cx('contact')}>
-                                        <img src={iconDelivery} alt="don't img" className={cx('icon')} />
+                                        <img src={iconDelivery} alt="Error"  className={cx('icon')} />
                                         <div className={cx('contact_number')}>
                                             <p>delivery order num</p>
                                             <span>123-456-789</span>
@@ -44,7 +45,7 @@ function Delivery(){
                                 </section>
                             </Grid>
                             <Grid item xs={6}>
-                                <img src={imgDelivery} alt="don't img" className={cx('delivery_content-img')} />
+                                <img src={imgDelivery} alt="Error" className={cx('delivery_content-img')} />
                             </Grid>
                         </Grid>
                     </Box>

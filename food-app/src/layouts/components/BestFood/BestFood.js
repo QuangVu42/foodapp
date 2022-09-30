@@ -27,56 +27,56 @@ function BestFood() {
         {
             id:1,
             src: imgslide1,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:2,
             src: imgslide2,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:3,
             src: imgslide3,
-            alt: "don't photo"
+            alt: "Error"
             
         }
         ,
         {
             id:4,
             src: imgslide4,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:5,
             src: imgslide5,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:6,
             src: imgslide6,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:7,
             src: imgslide7,
-            alt: "don't photo"
+            alt: "Error"
             
         }, 
         {
             id:8,
             src: imgslide8,
-            alt: "don't photo"
+            alt: "Error"
             
         },
         {
             id:9,
             src: imgslide9,
-            alt: "don't photo"
+            alt: "Error"
             
         }
     ]
@@ -119,7 +119,7 @@ function BestFood() {
                             {imgslides.map((imgslide,index)=>(
                                 <div key={imgslide.id}>
                                     <SwiperSlide key={index}>
-                                        <img src={imgslide.src} alt={imgslide.alt}  className={cx('imgslide')} />
+                                        <img src={imgslide.src} alt="Error"  className={cx('imgslide')} />
                                     </SwiperSlide>
                                 </div>
                             ))} 

@@ -26,6 +26,13 @@ function Shop () {
     const [loadingRate, setLoadingRate] = useState(true)
     const [priceId, SetPriceId] = useState(0)
 
+    // set layout
+    const [layout, setLayout] = useState(false)
+
+    // input Value
+    const [inputValue, setInputValue] = useState([])
+    const [productInputValue, setProductInputValue] = useState([])
+
     // handle product
     const [productUp, setProductUp] = useState([])
     
@@ -92,7 +99,7 @@ function Shop () {
         
     },[rateNumber,priceId])
     
-     // hanlde product 
+    // hanlde product 
     const onchangeUpdata = () =>{
         if(rateNumber && !priceId){
             return productUp
@@ -105,6 +112,18 @@ function Shop () {
         }
     }
 
+    //hanlde input value
+    useEffect(()=>{
+        setTimeout(()=>{
+            for(const element of products){
+                setProductInputValue(products.filter(
+                    product => product.name.toLowerCase().includes(inputValue.toLowerCase()
+                )))
+            }
+        })
+    },[inputValue])
+
+    
     return(
         <div className={cx('wrapper')}>
             <BannerShop />
@@ -122,10 +141,15 @@ function Shop () {
                             <Grid item xs={10}>
                                 <div className={cx('shop-product')}>
                                     <section className={cx('search')}>
-                                        <SearchShop />
+                                        <SearchShop
+                                            changeInputValue = { inputValue => setInputValue(inputValue)}
+                                            changeLayout = {layout => setLayout(layout)}
+                                            props={productInputValue}
+                                            value = {inputValue}
+                                        />
                                     </section>
                                     <section className={cx('product')}>
-                                        <ProductShop props={onchangeUpdata()} />
+                                        <ProductShop props={onchangeUpdata()} layout={layout} />
                                     </section>
                                 </div>
                             </Grid>

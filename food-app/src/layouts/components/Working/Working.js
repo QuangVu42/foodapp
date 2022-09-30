@@ -69,7 +69,7 @@ function Working(){
                     >
                         {Images.map((image)=>(
                             <SwiperSlide key={image.id} className={cx('slide-work')} id='round'>
-                                <img src={image.url} alt="don't " id="border-slide"  />
+                                <img src={image.url} alt="Error" id="border-slide"  />
                                 <p className={cx('content')}>{image.content}</p>
                                 <Round
                                         width= '60px'

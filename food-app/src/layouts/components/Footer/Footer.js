@@ -49,7 +49,7 @@ function Footer(){
                     <Grid container spacing={2}>   
                         <Grid item xs={3}>
                             <section className={cx('logo')}>
-                                <img src={logo} alt='logo' />
+                                <img src={logo} alt="Error"  />
                             </section>
                         </Grid> 
                         <Grid item xs={6}>

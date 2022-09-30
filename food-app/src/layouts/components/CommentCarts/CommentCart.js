@@ -36,6 +36,18 @@ function CommentCart(){
                         />
                     </div>
                 </div>
+                {[...Array(4)].map((e,i)=>
+                    <div className={cx('show_comment')} key={i}>
+                        <div className={cx('user')}>
+                            <div className={cx('user-icon')}>
+                                <FontAwesomeIcon icon={faUser} />
+                            </div>
+                            <span className={cx('name')}>quang vu</span>
+                            {[...Array(5)].map((e,i)=><FontAwesomeIcon icon={Starfullcolor} className={cx('vote')} key={i} />)}
+                        </div>
+                        <p className={cx('show_comment-content')}>Chuc cac ban mot ngay moi vui ve</p>
+                    </div>
+                )}
             </div>
         </div>
     )

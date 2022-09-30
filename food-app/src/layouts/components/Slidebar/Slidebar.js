@@ -110,7 +110,7 @@ function Slidebar(props){
                                     props.changeRateNumber(0)
                                 }}
                             >
-                                <img src={icon.icon} alt={icon.content} />
+                                <img src={icon.icon} alt="Error" />
                                 <p>{icon.content}</p>
                             </li>
                         </ul>

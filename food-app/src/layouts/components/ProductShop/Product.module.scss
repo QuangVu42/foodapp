@@ -2,7 +2,13 @@
     margin: 20px 0;
     .product{
         .box{
-            margin: 30px 0;
+            margin-bottom: 30px;
+            .three{
+                padding: 10px;
+            }
+            .four{
+                padding: 10px 30px;
+            }
         }
     }
 }
