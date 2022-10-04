@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -23,7 +24,7 @@ function SearchShop(props){
         <div className={cx('wrapper')}>
             <Box sx={{flexGrow:2}} className={cx('box')}>
                <Grid container spacing={2}>
-                    <Grid item xs={8}>
+                    <Grid item xs={8} >
                         <section className={cx('input')}>
                             <input type='search' placeholder='Search your products' 
                                 onChange={(e)=> props.changeInputValue(e.target.value.toString())}
@@ -50,7 +51,7 @@ function SearchShop(props){
                             </div>
                         </section>
                     </Grid>
-                   <Grid item xs={2}>
+                   <Grid item xs={2} className={cx('btn')}>
                         <section className={cx('btn')}>
                             <Button
                                 small
@@ -81,6 +82,9 @@ function SearchShop(props){
             </Box>
         </div>
     )
+}
+SearchShop.propTypes = {
+    props: PropTypes.array.isRequired,
 }
 
 export default SearchShop

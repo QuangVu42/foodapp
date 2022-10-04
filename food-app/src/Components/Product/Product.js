@@ -1,3 +1,5 @@
+import React, {useState, useEffect} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faDollar, faCartShopping, faStar } from '@fortawesome/free-solid-svg-icons'
@@ -11,8 +13,8 @@ const cx = classNames.bind(Style)
 function Product({
     to,
     border,
-    img, name, dsc, country, price, rate, 
     item, columnTwo, columnThree, columnFour,
+    img, name, dsc, country, price, rate, 
     ...passProps
 }){
     let Comp = 'div'
@@ -29,6 +31,33 @@ function Product({
         columnTwo, 
         item,
     })
+    
+    // save data in localStorage
+    const [count, setCount] = useState(1)
+    const onchangeData = () =>{
+
+        // set data cart up localStorage
+        const datas = JSON.parse(localStorage.getItem('cart') || "[]")
+        const data = {
+                name: name,
+                img: img, 
+                dsc: dsc, 
+                conuntry: country, 
+                price: price, 
+                rate:rate,
+                count
+           }
+        datas.push(data)
+       localStorage.setItem('cart',JSON.stringify(datas))
+
+        // set count up localStorage
+        localStorage.setItem('count',datas.length)
+    }
+    useEffect(() =>{
+        if(count){
+            document.getElementById('count-length').textContent = localStorage.getItem('count')
+        }
+    },[count])
     
     return(
         <div className= {Classes} {...props} style={{borderBottom:(border ? "1px solid var(--blue)": "" )}}>
@@ -60,7 +89,6 @@ function Product({
                     <Button 
                         id="btn-product"
                         circle
-                        href="#" 
                         children={price}
                         element={
                             <div className={cx('box')}>
@@ -75,9 +103,12 @@ function Product({
                     <Button 
                         id="btn-add"
                         primary
-                        href="#" 
                         children={'buy'}
                         icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
+                        onClick={()=>{
+                            onchangeData()
+                            setCount(count+1)
+                        }}
                     />
                 </div>
             </section>
@@ -87,6 +118,20 @@ function Product({
             </span>
         </div>
     )
+}
+Product.propTypes = {
+    to: PropTypes.string.isRequired,
+    border: PropTypes.bool.isRequired,
+    item: PropTypes.bool.isRequired,
+    columnTwo: PropTypes.bool.isRequired, 
+    columnThree: PropTypes.bool.isRequired, 
+    columnFour: PropTypes.bool.isRequired,
+    img: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired, 
+    dsc: PropTypes.string.isRequired, 
+    country: PropTypes.string.isRequired, 
+    price: PropTypes.number.isRequired, 
+    rate: PropTypes.number.isRequired, 
 }
 
 export default Product

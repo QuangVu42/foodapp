@@ -1,4 +1,5 @@
-import React, {useState, useEffect, createRef} from 'react'
+import React, {useState, useEffect} from 'react'
+import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
@@ -161,5 +162,6 @@ function Slidebar(props){
         </div>
     )
 }
+
 
 export default Slidebar

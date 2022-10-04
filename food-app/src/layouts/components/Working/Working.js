@@ -59,9 +59,15 @@ function Working(){
                 </div>
                 <div className={cx('content')}>
                     <Swiper
-                        slidesPerView={Images.length}
-                        grid={{
-                            rows: 1,
+                        breakpoints={{
+                            768:{
+                                slidesPerView: Images.length,
+                                grid: {rows: 1},
+                            },
+                            0: {
+                                slidesPerView:1,
+                                grid: {rows: 2}
+                            }
                         }}
                         modules={[Grid]}
                         className="mySwiper"

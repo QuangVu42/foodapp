@@ -56,9 +56,9 @@ function Ingredients () {
                                 <Box sx={{flexGrow:2}}  className={cx('box-content')}>
                                     <Grid container spacing={1}>
                                             {Contents.map(content=>(
-                                                <Grid item xs={12} key={content.id} id='round'>
+                                                <Grid item xs={12}  key={content.id} id='round'>
                                                     <div id="underline-border">
-                                                        <h1 className={cx('title')}>{content.title}</h1>
+                                                        <h2 className={cx('title')}>{content.title}</h2>
                                                         <p className={cx('content')}>{content.content}</p>
                                                     </div>
                                                     <Round

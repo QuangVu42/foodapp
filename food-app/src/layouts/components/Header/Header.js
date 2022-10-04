@@ -11,8 +11,17 @@ const cx = classNames.bind(Styles)
 
 function Header (){
 
+    // background scroll
     const [background, setBackground] = useState(false)
 
+    // set number product length
+    const [length, setLength] = useState()
+
+    useEffect(()=>{
+        setLength(localStorage.getItem('count') || 0)       
+    },[])
+
+    // set background scroll
     useEffect(()=>{
         const changeBackground = () =>{
             if(window.scrollY>=200){
@@ -67,13 +76,15 @@ function Header (){
                 <div className={cx('header-right')}>
                         <div className={cx('navbar-cart')}>
                             <Button item to={'/cart'}  icon={<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />} />
-                            <span className={cx('cart-number')}>1</span>
+                            <span className={cx('cart-number')} id="count-length">
+                                0
+                            </span>
                         </div>
                         <div className={cx('navbar-account')}>
                             <div className={cx('account-icon')}>
                                 <FontAwesomeIcon icon={faUserAlt}  className={cx('icon')} />
                             </div>
-                            <Button item to={'/login'}  children={'sign in'} />
+                            <Button item to={'/login'}  children={'sign in'}  onchangeLength = {length => setLength(length)}/>
                         </div>
                 </div>
             </header>

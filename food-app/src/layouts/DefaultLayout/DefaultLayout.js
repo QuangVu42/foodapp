@@ -1,3 +1,4 @@
+import  PropTypes  from 'prop-types'
 import classNames from 'classnames/bind'
 
 import Header from '../components/Header/Header'
@@ -14,6 +15,9 @@ function DefaultLayout ({childern}){
             <Footer />
         </div>
     )
+}
+DefaultLayout.protoTypes = {
+    childern: PropTypes.node.isRequired
 }
 
 export default DefaultLayout

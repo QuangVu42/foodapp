@@ -47,12 +47,12 @@ function Footer(){
                 </div>
                 <Box sx={{flexGrow:2}}>
                     <Grid container spacing={2}>   
-                        <Grid item xs={3}>
+                        <Grid item xs={12} md={3}>
                             <section className={cx('logo')}>
                                 <img src={logo} alt="Error"  />
                             </section>
                         </Grid> 
-                        <Grid item xs={6}>
+                        <Grid item xs={12} md={6}>
                             <section className={cx('content')}>
                                 <ul className={cx('content-title')}>
                                     <li>home</li>
@@ -69,37 +69,29 @@ function Footer(){
                                 </ul>
                             </section>
                         </Grid>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} md={3}>
                             <section className={cx('address')}>
-                                <Box sx={{flexGrow:2}}>
-                                    <Grid container spacing={2}>
-                                        <Grid item xs={2} >
-                                            <ul>
-                                                <li><FontAwesomeIcon icon={faPhone} className={cx('icon')} /></li>
-                                                <li><FontAwesomeIcon icon={faAddressCard}  className={cx('icon')} /></li>
-                                                <li><FontAwesomeIcon icon={faMap} className={cx('icon')} /></li>
-                                            </ul>
-                                        </Grid>
-                                        <Grid item xs={8}>
-                                            <ul>
-                                                <li>
-                                                    <span>+0909090909</span>
-                                                </li>
-                                                <li>
-                                                    <span>foodapp@gmail.com</span>
-                                                </li>
-                                                <li>
-                                                    <span>88 sam son, viet nam</span>
-                                                </li>
-                                                <div className={cx('icon')}>
-                                                    <span></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </div>
-                                            </ul>
-                                        </Grid>
-                                    </Grid>
-                                </Box>
+                                <ul>
+                                    <li><FontAwesomeIcon icon={faPhone} className={cx('icon')} /></li>
+                                    <li><FontAwesomeIcon icon={faAddressCard}  className={cx('icon')} /></li>
+                                    <li><FontAwesomeIcon icon={faMap} className={cx('icon')} /></li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <span>+0909090909</span>
+                                    </li>
+                                    <li>
+                                        <span>foodapp@gmail.com</span>
+                                    </li>
+                                    <li>
+                                        <span>88 sam son, viet nam</span>
+                                    </li>
+                                    <div className={cx('icon')}>
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </ul>
                             </section>
                         </Grid>
                     </Grid>

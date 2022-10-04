@@ -16,9 +16,18 @@
             .header-logo{
                 height: 4.8rem;
                 margin: 0 10px;
+                @media(min-width: 768px) and (max-width: 1024px){
+                    height: 4rem;
+                }
+                @media (min-width: 576px) and (max-width: 768px) {
+                    height: 3.5rem;
+                 }
             }
             .navbar{
                 display: flex;
+                @media (max-width: 768px) {
+                    display: none;
+                 }
                 .navbar-item{
                     margin: 0 15px;
                     position: relative;
@@ -26,7 +35,6 @@
                     &:hover{
                         transform: scale(1.1)
                     }
-                    
                 }
             }
         }

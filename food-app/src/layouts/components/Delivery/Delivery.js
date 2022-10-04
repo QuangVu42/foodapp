@@ -19,7 +19,7 @@ function Delivery(){
                 <div className={cx('delivery')}>
                     <Box sx={{flexGrow:2}}>
                         <Grid container spacing={2}>
-                            <Grid item xs={6}>
+                            <Grid item xs={12} sm={6}>
                                 <section className={cx('delivery_content')}>
                                     <div className={cx('delivery_content-header')}>
                                         <h1>delivery</h1>
@@ -44,7 +44,7 @@ function Delivery(){
                                     </div>
                                 </section>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={0} sm={6}>
                                 <img src={imgDelivery} alt="Error" className={cx('delivery_content-img')} />
                             </Grid>
                         </Grid>

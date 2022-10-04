@@ -5,7 +5,7 @@ import Grid from '@mui/material/Grid'
 
 import Styles from './Shop.module.scss'
 import productApi from '../../apis/productApis'
-import Product from '../../Components/Product/Product'
+import LoadingProduct from '../../Loading/LoadingProduct/LoadingProduct'
 
 // modules
 const BannerShop = lazy(()=> import("../../layouts/components/BannerShop/BannerShop"))
@@ -25,6 +25,7 @@ function Shop () {
     const [rateNumber, setRateNumber] = useState(0)
     const [loadingRate, setLoadingRate] = useState(true)
     const [priceId, SetPriceId] = useState(0)
+    const [loadingProduct, setLoadingProduct] = useState(true)
 
     // set layout
     const [layout, setLayout] = useState(false)
@@ -52,11 +53,11 @@ function Shop () {
     // handle productUP
     useEffect(() =>{
         if(rateNumber && !priceId){
-            setLoadingRate(true)
+            setLoadingRate(false)
 
             setProductUp(products.filter(product=> (rateNumber === product.rate)))
             
-            setLoadingRate(false)
+            setLoadingRate(true)
         }else if(!rateNumber && priceId){
             switch(priceId){
                 case 1:
@@ -96,7 +97,6 @@ function Shop () {
             }
             setLoadingRate(false)
         }
-        
     },[rateNumber,priceId])
     
     // hanlde product 
@@ -122,8 +122,7 @@ function Shop () {
             }
         })
     },[inputValue])
-
-    
+     
     return(
         <div className={cx('wrapper')}>
             <BannerShop />
@@ -131,14 +130,14 @@ function Shop () {
                 <Box sx={{flexGrow:2}}>
                     <div className={cx('shop-content')}>
                         <Grid container spacing={0}>
-                            <Grid item xs={2}>
+                            <Grid item xs={2} sm={3}>
                                 <Slidebar 
                                     changeFilters={ filters => setFilters(filters)}
                                     changeRateNumber = {rateNumber => setRateNumber(rateNumber)}
                                     changePriceId = { priceId => SetPriceId(priceId)} 
                                 />
                             </Grid>
-                            <Grid item xs={10}>
+                            <Grid item xs={10} sm={9}>
                                 <div className={cx('shop-product')}>
                                     <section className={cx('search')}>
                                         <SearchShop
@@ -149,7 +148,15 @@ function Shop () {
                                         />
                                     </section>
                                     <section className={cx('product')}>
-                                        <ProductShop props={onchangeUpdata()} layout={layout} />
+                                        <div style={
+                                            (loading) ? {display:'block'} : {display: 'none'}
+                                            }
+                                        >
+                                            <LoadingProduct />
+                                        </div>
+                                        <span style={ !loading ? {display: 'block'}: {display:'none'}}>
+                                            <ProductShop props={onchangeUpdata()} layout={layout} />
+                                        </span>
                                     </section>
                                 </div>
                             </Grid>

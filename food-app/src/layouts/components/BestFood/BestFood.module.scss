@@ -11,6 +11,9 @@
                 span{
                     color: var(--red);
                 }
+                @media (min-width: 576px) and (max-width: 768px) {
+                    font: 2.5rem;
+                }
             }
         }
         .btn{

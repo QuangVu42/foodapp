@@ -26,16 +26,25 @@
                 &:hover{
                     color: var(--yellow);
                 }
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    padding: 5px 10px;
+                }
             }
         }
     }
     .logo{
         img{
             width: 70%;
+            @media (max-width: 899px) {
+                width: 30%;
+            }
         }
     }
     .address{
+        display: flex;
+        justify-content: center;
         ul{
+            margin-right:2px ;
             li{
                 cursor: pointer;
                 &:hover{

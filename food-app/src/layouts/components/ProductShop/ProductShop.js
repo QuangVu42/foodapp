@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/box'
 import Grid from '@mui/material/grid'
@@ -11,8 +12,11 @@ import Pagination from '../../../Components/Pagination/Pagination'
 const cx = classNames.bind(Styles)
 
 function ProductShop({props,layout}){
+     
+     // get data
      const products = props
 
+     // chia pagination
      const [currentPage, setCurrentPage] = useState(1)
      const [postsPerPage,setPostsPerPage] = useState(16)
 
@@ -27,7 +31,7 @@ function ProductShop({props,layout}){
      // set postsPerPage
      useEffect(() =>{
           if(layout){
-               setPostsPerPage(16)
+               setPostsPerPage(24)
           }else{
               setPostsPerPage(15)
           }
@@ -39,8 +43,8 @@ function ProductShop({props,layout}){
                <Box sx={{flexGrow:2}} className={cx('box')}>
                     <Grid container >
                     {currentPosts.map((product,index) =>(
-                         <Grid item xs={layout ? 3 : 4 } key={index} className={layout ? cx('three') : cx('four')}>
-                             <LazyLoad>
+                         <Grid item xs={layout ? 3 : 4 } key={index} className={layout ? cx('three') : cx('four')} >
+                              <LazyLoad>
                                    <Product
                                         columnFour 
                                         img={product.img}
@@ -51,8 +55,8 @@ function ProductShop({props,layout}){
                                         rate={product.rate}
                                         to={'/detail'}
                                    />
-                             </LazyLoad>
-                    </Grid>
+                              </LazyLoad>
+                         </Grid>
                     ))}
                     </Grid>
                </Box>
@@ -61,6 +65,8 @@ function ProductShop({props,layout}){
      </div>
     )
 }
-
-
+ProductShop.propTypes = {
+     props: PropTypes.array.isRequired,
+     layout: PropTypes.bool.isRequired
+}
 export default ProductShop

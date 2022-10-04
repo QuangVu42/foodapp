@@ -21,6 +21,9 @@
                 &:hover{
                     color: var(--red);
                 }
+                @media(min-width: 768px) and (max-width: 1024px){
+                    font-size:1.3rem;
+                }
             }
             .icon{
                 position: absolute;
@@ -30,6 +33,13 @@
                 margin: 0 5px;
                 animation-delay: transform 0.2s linear;
                 animation: animate1 2s linear infinite;
+                @media(min-width: 768px) and (max-width: 1024px){
+                    font-size: 3rem;
+                    top: 70px;
+                }
+                @media (min-width: 576px) and (max-width: 768px) {
+                    display: none;
+                 }
             }
             .icon-one{
                 right: 0;

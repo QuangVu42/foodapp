@@ -1,4 +1,3 @@
-// import { useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination} from 'swiper'
 import classNames from 'classnames/bind'
@@ -11,7 +10,7 @@ import "swiper/css/pagination";
 
 import Button from '../../../Components/Button/Button'
 import Styles from './Slider.module.scss'
-import backgroundBanner from '../../../assets/images/banner-nd.jpg'
+import  backgroundBanner from '../../../assets/images/banner-nd.jpg'
 import backgroundBanner1 from '../../../assets/images/banner-rd.jpg'
 import backgroundBanner2 from '../../../assets/images/banner-st.jpg'
 

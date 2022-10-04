@@ -1,0 +1,61 @@
+.wrapper{
+    height: 40vh;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-direction: column-reverse;
+    h1{
+        text-transform:capitalize;
+        color: #1a1940;
+        font-family: 'Galada', cursive;
+    }
+    .images-loading{
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        div{
+            width: 1.5vw;
+            height: 1.5vw;
+            border-radius: 100%;
+            margin: 1.5vw;
+            animation: bounce 1.5s 0.5s linear infinite;
+        }
+        .yellow {
+            background-color: var(--yellow);
+            animation-delay: 0.1s;
+        }
+        
+        .red {
+            background-color: var(--red);
+            animation-delay: 0.2s;
+        }
+        
+        .blue {
+            background-color: var(--blue);
+            animation-delay: 0.3s;
+        }
+        
+        .violet {
+            background-color: var(--violet);
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+@keyframes bounce {
+	0%, 50%, 100% {
+		transform: scale(1);
+		filter: blur(0px);
+	}
+	25% {
+		transform: scale(0.4);
+		filter: blur(2px);
+	}
+	75% {
+		filter: blur(2px);
+		transform: scale(1.4);
+	}
+}

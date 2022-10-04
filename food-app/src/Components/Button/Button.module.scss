@@ -22,12 +22,19 @@
         transform: scale(1.1);
         background-color: var(--blue);
     }
+	@media(min-width: 768px) and (max-width: 1024px){
+        font-size: 1.2rem;
+		width: 15rem;
+    }
 }
 
 // item
 .item{
     font-size: 1.8rem;
     transition: transform 0.2s linear;
+	@media(min-width: 768px) and (max-width: 1024px){
+		font-size: 1.2rem;
+	}
 }
 li>.item::after{
     content: '';

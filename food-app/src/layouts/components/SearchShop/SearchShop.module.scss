@@ -50,10 +50,18 @@
                 display: block;
             }
         }
+        .btn{
+            @media (min-width: 768px) and (max-width: 1024px) {
+                display: none;
+            }
+        }
         .icon-types{
             display: flex;
             justify-content: space-between;
             text-align: center;
+            @media (min-width: 768px) and (max-width: 1024px) {
+               display: none;
+            }
             .icon1{
                 margin: 5px 20px;
                 font-size: 3rem;

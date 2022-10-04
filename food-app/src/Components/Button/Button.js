@@ -10,6 +10,7 @@ function GlobalButton({
     primary = false, item =false, itemLogo = false, 
     outline = false, small = false, large= false,
     circle = false, login = false,
+    state,
     element,btnIcon ,icon, children, onClick , ...passProps
 }){
     let Comp = 'button';
@@ -20,7 +21,6 @@ function GlobalButton({
     }
     
     if(to){
-        props.to = to;
         Comp = Link
     }else if(href){
         props.href = href;
@@ -37,7 +37,7 @@ function GlobalButton({
         element
     })
     return(
-        <Comp className={Classes} {...props}>
+        <Comp className={Classes} to={to} {...props} state={{state}}>
                 <div className={cx('icon')}>{icon}</div>
                 {children}
                 {element}

@@ -1,3 +1,4 @@
+import React,{useState, useEffect} from 'react'
 import classNames from 'classnames/bind'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -9,13 +10,26 @@ import ReactImageMagnify from 'react-image-magnify';
 
 import Styles from './Details.module.scss'
 import Button from '../../../Components/Button/Button'
-import Detail from '../../../page/Detail/Detail'
 
 const cx = classNames.bind(Styles)
 
 function Details() {
+
+    // route data
     const location = useLocation()
     const { img, name, dsc, country, price, rate } = location.state
+
+    // set number product
+    const [number, setNumber] = useState(1)
+    const [totalPrice, setTotalPrice] = useState(price)
+
+    // state product location
+    const state = []
+    state.push(img, name, dsc, country, price, rate)
+
+    useEffect(() =>{
+        setTotalPrice(price*number)
+    },[number])
 
     return(
         <div className={cx('wrapper')}>
@@ -57,7 +71,7 @@ function Details() {
                                     {[...Array(rate)].map((e,index)=>(<FontAwesomeIcon icon={Starfullcolor} className={cx('vote')} key ={index} />))}
                                     {[...Array(5-rate)].map((e,index)=>(<FontAwesomeIcon icon={Starcolorborder} className={cx('noVote')} key ={index} />))}
                                 </span>
-                                <div className={cx('price')}>${price}</div>
+                                <div className={cx('price')}>${totalPrice}</div>
                                 <div className={cx('content-infor')}>
                                     <p><span>category:</span> best food</p>
                                     <p><span>county:</span> {country}</p>
@@ -65,20 +79,42 @@ function Details() {
                                 <p>{dsc}</p>
                                 <div className={cx('content-add')}>
                                     <div className={cx('content-btn')}>
-                                        <button type="button" className={cx('btn')}>
+                                        <button 
+                                            type="button" 
+                                            className={cx('btn')}
+                                            onClick={()=>{
+                                                if(number>1){
+                                                    setNumber(number-1)
+                                                }else{
+                                                    setNumber(1)
+                                                }
+                                            }}
+                                        >
                                             <span><FontAwesomeIcon icon={faMinus}  className={cx('icon')} /></span>
                                         </button>
-                                        <span className={cx('number')}>1</span>
-                                        <button type="button" className={cx('btn')}>
+                                        <span className={cx('number')}>{number}</span>
+                                        <button 
+                                            type="button" 
+                                            className={cx('btn')}
+                                            onClick={()=>{
+                                                if(number<20){
+                                                    setNumber(number+1)
+                                                }else{
+                                                    setNumber(20)
+                                                }
+                                            }}
+                                        >
                                             <span><FontAwesomeIcon icon={faPlus} className={cx('icon')} /></span>
                                         </button>
                                     </div>
                                     <div className={cx('btn')}>
                                         <Button 
+                                            state={ state }
                                             primary
                                             href='#'
                                             children={'add to cart'}
-                                            icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />}
+                                            icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} 
+                                        />}
                                         />
                                     </div>
                                     <span>

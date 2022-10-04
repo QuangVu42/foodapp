@@ -62,10 +62,22 @@ function QualityProducts() {
                 </section>
                 <section className={cx('slide')}>
                     <Swiper
-                        slidesPerView={4}
                         spaceBetween={20}
-                        // centeredSlides={true}
                         loop={true}
+                        breakpoints={{
+                            768:{
+                                slidesPerView: 3
+                            },
+                            1024:{
+                                slidesPerView: 4
+                            },
+                            576:{
+                                slidesPerView:2
+                            },
+                            0:{
+                                slidesPerView:1
+                            }
+                        }}
                         autoplay={{
                             delay: 4000,
                             disableOnInteraction: false,
