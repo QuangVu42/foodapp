@@ -17,6 +17,9 @@
                 span{
                     color: var(--red);
                 }
+                @media (max-width:768px) {
+                    font-size: 2rem;
+                }
             }
         }
     }

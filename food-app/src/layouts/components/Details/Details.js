@@ -31,6 +31,27 @@ function Details() {
         setTotalPrice(price*number)
     },[number])
 
+    // lay data tu localStorage
+    const data = JSON.parse(localStorage.getItem('cart')) || '[]'
+
+    // add data cart in localStorage
+    const onchangeUpDataLocal = () =>{
+        if(data){
+            var a = data.some((e)=>{
+                return e.name === name
+            })
+            if(a){
+                data.forEach((e)=>{
+                    e.count = number;
+                })
+            }else{
+                data.push(
+                    {img, name:{name}, dsc:{dsc}, country:{country}, price:{price}, rate:{rate}}
+                    )
+            }
+            localStorage.setItem('cart',JSON.stringify(data))
+        }
+    }
     return(
         <div className={cx('wrapper')}>
             <section className={cx('carts')}>
@@ -111,15 +132,14 @@ function Details() {
                                         <Button 
                                             state={ state }
                                             primary
-                                            href='#'
                                             children={'add to cart'}
                                             icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} 
-                                        />}
+                                            />}
+                                            onClick = {
+                                                () => onchangeUpDataLocal()
+                                            }
                                         />
                                     </div>
-                                    <span>
-                                        <FontAwesomeIcon icon={faHeart} className={cx('icon')} />
-                                    </span>
                                 </div>
                                 <ul className={cx('content-redow')}>
                                     <li>

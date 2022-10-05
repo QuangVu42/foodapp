@@ -130,14 +130,14 @@ function Shop () {
                 <Box sx={{flexGrow:2}}>
                     <div className={cx('shop-content')}>
                         <Grid container spacing={0}>
-                            <Grid item xs={2} sm={3}>
+                            <Grid item xs={0} sm={0}  md={3}>
                                 <Slidebar 
                                     changeFilters={ filters => setFilters(filters)}
                                     changeRateNumber = {rateNumber => setRateNumber(rateNumber)}
                                     changePriceId = { priceId => SetPriceId(priceId)} 
                                 />
                             </Grid>
-                            <Grid item xs={10} sm={9}>
+                            <Grid item xs={12} sm={12} md={9}>
                                 <div className={cx('shop-product')}>
                                     <section className={cx('search')}>
                                         <SearchShop

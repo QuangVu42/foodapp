@@ -6,7 +6,7 @@ import Style from './Button.module.scss';
 const cx = classNames.bind(Style)
 
 function GlobalButton({
-    to, href,
+    to, href, id,
     primary = false, item =false, itemLogo = false, 
     outline = false, small = false, large= false,
     circle = false, login = false,
@@ -37,8 +37,10 @@ function GlobalButton({
         element
     })
     return(
-        <Comp className={Classes} to={to} {...props} state={{state}}>
-                <div className={cx('icon')}>{icon}</div>
+        <Comp className={Classes} to={to} {...props} state={{state}} id={id}>
+                <div className={cx('icon')}>
+                    {icon}
+                </div>
                 {children}
                 {element}
         </Comp>

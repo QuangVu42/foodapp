@@ -105,7 +105,17 @@ function BestFood() {
                     </div>
                     <div className={cx('slide')}>
                         <Swiper
-                            slidesPerView={7}
+                            breakpoints={{
+                                768:{
+                                    slidesPerView:7
+                                },
+                                576:{
+                                    slidesPerView: 5
+                                },
+                                0:{
+                                    slidesPerView: 3
+                                }
+                            }}
                             spaceBetween={0}
                             loop={true}
                             autoplay={{

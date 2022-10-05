@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faNewspaper, faBurger, faStore, faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 import Styles from './Header.module.scss';
 import Logo from '../../../assets/images/logo.svg'
@@ -76,9 +77,9 @@ function Header (){
                 <div className={cx('header-right')}>
                         <div className={cx('navbar-cart')}>
                             <Button item to={'/cart'}  icon={<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} />} />
-                            <span className={cx('cart-number')} id="count-length">
+                            <Link to={'/cart'} className={cx('cart-number')} id="count-length">
                                 0
-                            </span>
+                            </Link>
                         </div>
                         <div className={cx('navbar-account')}>
                             <div className={cx('account-icon')}>

@@ -12,6 +12,9 @@
                     span{
                         color: var(--red);
                     }
+                    @media (max-width: 767px) {
+                        font-size: 2rem;
+                    }
                 }
                 p{
                     color: var(--black);
@@ -46,7 +49,7 @@
         .delivery_content-img{
             height: 100%;
             width: 100%;
-            @media (max-width: 768px) {
+            @media (max-width: 599px) {
                 display: none;
             }
         }

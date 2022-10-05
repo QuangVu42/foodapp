@@ -65,6 +65,7 @@ function Information(){
                         frameBorder={0}
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen=""
+                        id='video'
                     ></iframe>
                     <span 
                         className={ cx('span')}

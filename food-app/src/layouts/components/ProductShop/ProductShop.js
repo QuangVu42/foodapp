@@ -43,7 +43,7 @@ function ProductShop({props,layout}){
                <Box sx={{flexGrow:2}} className={cx('box')}>
                     <Grid container >
                     {currentPosts.map((product,index) =>(
-                         <Grid item xs={layout ? 3 : 4 } key={index} className={layout ? cx('three') : cx('four')} >
+                         <Grid item md={layout ? 3 : 4 } sm={4} xs={6} key={index} className={layout ? cx('three') : cx('four')} >
                               <LazyLoad>
                                    <Product
                                         columnFour 

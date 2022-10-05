@@ -56,61 +56,36 @@ function Carts() {
               <Box sx={{flexGrow:2}} className={cx('box')}>
                   {products.map((product,index)=>(
                     <Grid container className={cx('content')} key={index}>
-                        <Grid item xs={5} className={cx('content-product')}>
+                        <Grid item xs={12} sm={6} className={cx('content-product')}>
                           <Product
                               item
                               img={product.img}
                               name={product.name}
                               dsc= {product.dsc}
-                              country={product.country}
+                              country={product.conuntry}
                               price={product.price}
                               rate={product.rate}
                               border={false}
                               to={'/detail'}
                           />
                         </Grid>
-                        <Grid item xs={0.5} className={cx('content-total')}>
+                        <Grid item xs={2} sm={1} className={cx('content-total')}>
                           {product.count}
                         </Grid>
-                        <Grid item xs={0.5} className={cx('content-price')}>
+                        <Grid item xs={2} sm={1} className={cx('content-price')}>
                           <p>${product.price*product.count}</p>
                         </Grid>
-                        <Grid item xs={2} className={cx('content-count')}>
-                          <div className={cx('count')}>
-                            <button type="button" className={cx('btn')}
-                              onClick={()=>{
-                                if(number>0){
-                                  setNumber(number-1)
-                                }else{
-                                  setNumber(0)
-                                }
-                              }}
-                            >
-                              <span><FontAwesomeIcon icon={faMinus}  className={cx('icon')} /></span>
-                            </button>
-                            <span className={cx('number')}>{number}</span>
-                            <button type="button" className={cx('btn')}
-                              onClick={()=>{
-                                if(number<10){
-                                  setNumber(number+1)
-                                }else{
-                                  setNumber(20)
-                                }
-                              }}
-                            >
-                              <span><FontAwesomeIcon icon={faPlus} className={cx('icon')} /></span>
-                            </button>
-                          </div>
-                        </Grid>
-                        <Grid item xs={2} className={cx('content-pay')}>
+                        <Grid item xs={3} sm={2} className={cx('content-pay')}>
                           <Button 
+                              id="cart"
                             primary
                             children={'pay'}
                             icon = {<FontAwesomeIcon icon={faCreditCard} className={cx('icon')} />}
                           />
                         </Grid>
-                        <Grid item xs={2} className={cx('content-pay')}>
-                          <Button 
+                        <Grid item xs={3} sm={2} className={cx('content-pay')}>
+                          <Button
+                            id="cart"
                             primary
                             children={'delete'}
                             icon = {<FontAwesomeIcon icon={faCreditCard} className={cx('icon')} />}
@@ -121,12 +96,14 @@ function Carts() {
               </Box>
               <div className={cx('total')}>
                 <p>total: <span>${totalPrice}</span></p>
-                <Button 
+                <Button
+                  id='cart'
                   primary
                   children={'pay add'}
                   icon = {<FontAwesomeIcon icon={faCreditCard} className={cx('icon')} />}
                 />
                 <Button 
+                  id='cart'            
                   primary
                   children={'delete add'}
                   icon = {<FontAwesomeIcon icon={faCreditCard} className={cx('icon')} />}

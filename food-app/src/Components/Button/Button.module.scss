@@ -22,7 +22,7 @@
         transform: scale(1.1);
         background-color: var(--blue);
     }
-	@media(min-width: 768px) and (max-width: 1024px){
+	@media (max-width: 1024px){
         font-size: 1.2rem;
 		width: 15rem;
     }
@@ -75,6 +75,10 @@ li>.item:hover:after{
 	}
 	.icon{
 		color: var(--red);
+	}
+	@media (max-width: 768px) {
+		font-size: 2rem;
+		padding: 10px;
 	}
 }
 .circle div span:nth-child(1) {

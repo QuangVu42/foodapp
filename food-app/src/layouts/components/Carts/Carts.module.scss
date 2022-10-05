@@ -10,6 +10,7 @@
     .box{
         overflow: auto;
         max-height: 400px;
+        background: var(--grey);
         .content{
             border-bottom: 1px solid var(--blue);
             .content-product{
@@ -26,21 +27,6 @@
                 color: var(--red);
                 font-size: 2.2rem;
                 font-weight: 900;
-            }
-            .content-count{
-                display: flex;
-                align-items: center;
-                .count{
-                    .btn{
-                        padding: 10px;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        background: var(--grey);
-                    }
-                    .number{
-                        margin: 0 10px;
-                    }
-                }
             }
             .content-pay{
                 align-self: center;

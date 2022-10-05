@@ -3,6 +3,9 @@
     justify-content: center;
     text-align: center;
     .slidebar{
+        @media(max-width:899px){
+            display: none;
+        }
         .box{
             .title{
                 font-size: 2.5rem;
