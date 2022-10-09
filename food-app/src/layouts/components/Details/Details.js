@@ -32,26 +32,37 @@ function Details() {
     },[number])
 
     // lay data tu localStorage
-    const data = JSON.parse(localStorage.getItem('cart')) || '[]'
+    const [countNew,setConutNew] = useState(0)
+    const data = JSON.parse(localStorage.getItem('cart')) || []
+    const count = JSON.parse(localStorage.getItem('count')) || 0
 
     // add data cart in localStorage
     const onchangeUpDataLocal = () =>{
-        if(data){
-            var a = data.some((e)=>{
-                return e.name === name
-            })
+        var a = data.some((e)=>{
+            return e.name === name
+        })
+        if(typeof(data) === 'object'){
             if(a){
                 data.forEach((e)=>{
-                    e.count = number;
+                    if(e.name === name){
+                        e.count = number
+                    }
                 })
             }else{
-                data.push(
-                    {img, name:{name}, dsc:{dsc}, country:{country}, price:{price}, rate:{rate}}
-                    )
+                data.push({img, name, dsc, country, price, rate, count: number >1 ? number :1 })
+                localStorage.setItem('count',JSON.stringify(count+1))
             }
-            localStorage.setItem('cart',JSON.stringify(data))
+        }else{
+            data.push({img, name, dsc, country, price, rate, count: number >1 ? number :1 })
+            localStorage.setItem('count',JSON.stringify(count+1))
         }
+        localStorage.setItem('cart',JSON.stringify(data))
     }
+
+    // show count in header
+    useEffect(() =>{
+        document.getElementById('count-length').textContent = localStorage.getItem('count')
+    },[countNew])
     return(
         <div className={cx('wrapper')}>
             <section className={cx('carts')}>
@@ -136,7 +147,10 @@ function Details() {
                                             icon = {<FontAwesomeIcon icon={faCartShopping} className={cx('icon')} 
                                             />}
                                             onClick = {
-                                                () => onchangeUpDataLocal()
+                                                () => {
+                                                    setConutNew(1)
+                                                    onchangeUpDataLocal()
+                                                }
                                             }
                                         />
                                     </div>

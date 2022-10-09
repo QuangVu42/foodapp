@@ -35,9 +35,11 @@ function Product({
     // save data in localStorage
     const [count, setCount] = useState(1)
     const onchangeData = () =>{
-
         // set data cart up localStorage
         const datas = JSON.parse(localStorage.getItem('cart') || "[]")
+        var a = datas.some((e)=>{
+            return e.name === name
+        })
         const data = {
                 name: name,
                 img: img, 
@@ -47,12 +49,16 @@ function Product({
                 rate:rate,
                 count
            }
-        datas.push(data)
-       localStorage.setItem('cart',JSON.stringify(datas))
-
-        // set count up localStorage
-        localStorage.setItem('count',datas.length)
+        if(!a){
+            datas.push(data)
+            localStorage.setItem('cart',JSON.stringify(datas))
+    
+            // set count up localStorage
+            localStorage.setItem('count',datas.length)
+        }
     }
+
+    // show count in header
     useEffect(() =>{
         if(count){
             document.getElementById('count-length').textContent = localStorage.getItem('count')

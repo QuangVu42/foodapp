@@ -21,6 +21,10 @@ function Carts() {
  
    // set total price
    const [totalPrice, setTotalPrice] = useState(0)
+  
+  // set count in localStorage
+  const count = JSON.parse(localStorage.getItem('count')) || 0
+  const [dataNew, setDataNew] = useState(0)
 
   // set, get, remove data localStorag
   const [products, setProducts] = useState([])
@@ -47,8 +51,23 @@ function Carts() {
     }
     setTotalPrice(sum)
   },[products])
-
-
+  // delete one product
+  var onchangeDeleteProduct= (product)=>{
+    var a = products.filter((e)=>{
+      return e.name !== product.name
+    })
+    localStorage.setItem('cart',JSON.stringify(a))
+    localStorage.setItem('count',JSON.stringify(count-1))
+  }
+  // render a list of products
+  useEffect(() =>{
+    setProducts(JSON.parse(localStorage.getItem('cart')) || [])
+  },[dataNew])
+  // show count in header
+  useEffect(() =>{
+    document.getElementById('count-length').textContent = localStorage.getItem('count')
+  },[dataNew])
+  
     return(
         <div className={cx('wrapper')}>
             <div id='container'>
@@ -89,6 +108,12 @@ function Carts() {
                             primary
                             children={'delete'}
                             icon = {<FontAwesomeIcon icon={faCreditCard} className={cx('icon')} />}
+                            onClick= {
+                              ()=> {
+                                setDataNew(dataNew+1)
+                                onchangeDeleteProduct(product)
+                              }
+                            }
                           />
                         </Grid>
                     </Grid>
