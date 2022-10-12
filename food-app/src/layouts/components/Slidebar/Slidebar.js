@@ -1,10 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
+import { faList, faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
 import { faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
-import { LazyLoad} from 'react-lazyload'
 
 import Burgers from '../../../assets/svgs/burger.e4646d9c.svg'
 import Breads from '../../../assets/svgs/bread.3829698f.svg'
@@ -91,12 +90,36 @@ function Slidebar(props){
     const [pricesId, setPriceId] = useState(0) 
     const [rateup, setRateup] = useState(0)
     const [checked, setChecked] = useState(false)
- 
+    const [showSlidebar,setShowSlidebar] = useState(false)
+
+    // set show menuSlidebar 
+    const [iconShowMenu, setIconShowMenu] = useState(false)
+    useEffect(()=>{
+        const IconShowMenu = (e) =>{
+            if(window.scrollY>=224 && window.scrollY<=3500){
+                setIconShowMenu(true)
+            }else{
+                setIconShowMenu(false)
+            }
+        }
+        window.addEventListener('scroll', IconShowMenu,{passive:true})
+    },[])
+
     return(
         <div className={cx('wrapper')}>
-            <div className={cx('slidebar')}>
+            <div 
+                className={iconShowMenu ? cx('menuSlidebar') : cx('menuNone')}
+                onClick={()=>{
+                    setShowSlidebar(true)
+                }}
+            >
+                <FontAwesomeIcon  icon={faList } />
+            </div>
+            <div className={showSlidebar ? cx('slidebar','slidebar_active') : cx('slidebar')}>
                 <section className={cx('popular','box')}>
-                    <h1 className={cx('title')}>popular</h1>
+                    <h1 
+                        className={cx('title')}
+                    >popular</h1>
                     {Icons.map(icon=>(
                         <ul key={icon.id} className={cx('item')}>
                             <li className={icons === icon.content ? cx('item-list','active') : cx('item-list')}  
@@ -133,7 +156,7 @@ function Slidebar(props){
                                             props.changePriceId(price.id)
                                             setChecked(true)
                                         }}
-                                        checked= {pricesup && pricesId== price.id ? checked : ''}
+                                        checked= {pricesup && pricesId === price.id ? checked : false}
                                     />
                                     <p>{price.price}</p>
                                 </li>

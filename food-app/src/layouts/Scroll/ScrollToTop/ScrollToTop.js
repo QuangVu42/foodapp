@@ -4,21 +4,22 @@ import {faUpLong} from '@fortawesome/free-solid-svg-icons'
 
 function ScrollToTop(){
     const [backToTop, setBackToTop] = useState(false)
-
+    
     useEffect(() =>{
-        window.addEventListener('scroll',()=>{
+        const onScroll = () => {
             if(window.scrollY>100){
                 setBackToTop(true)
             }else{
                 setBackToTop(false)
             }
-        })
+        }
+        window.addEventListener('scroll',onScroll,{passive:true})
     },[])
     const scrollUp  = () =>{
         window.scrollTo({
             top: 0,
             behavior: 'auto'
-        })
+        }) 
     }
     return(
         <Fragment>

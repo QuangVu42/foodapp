@@ -13,7 +13,7 @@ const cx = classNames.bind(Style)
 function Product({
     to,
     border,
-    item, columnTwo, columnThree, columnFour,
+    item, columnFour,
     img, name, dsc, country, price, rate, 
     ...passProps
 }){
@@ -27,8 +27,6 @@ function Product({
     }
     const Classes= cx('wrapper',{
         columnFour,
-        columnThree,
-        columnTwo, 
         item,
     })
     
@@ -126,18 +124,16 @@ function Product({
     )
 }
 Product.propTypes = {
-    to: PropTypes.string.isRequired,
-    border: PropTypes.bool.isRequired,
-    item: PropTypes.bool.isRequired,
-    columnTwo: PropTypes.bool.isRequired, 
-    columnThree: PropTypes.bool.isRequired, 
-    columnFour: PropTypes.bool.isRequired,
-    img: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired, 
-    dsc: PropTypes.string.isRequired, 
-    country: PropTypes.string.isRequired, 
-    price: PropTypes.number.isRequired, 
-    rate: PropTypes.number.isRequired, 
+    to: PropTypes.string,
+    border: PropTypes.bool,
+    item: PropTypes.bool, 
+    columnFour: PropTypes.bool,
+    img: PropTypes.string,
+    name: PropTypes.string, 
+    dsc: PropTypes.string, 
+    country: PropTypes.string, 
+    price: PropTypes.number, 
+    rate: PropTypes.number, 
 }
 
 export default Product

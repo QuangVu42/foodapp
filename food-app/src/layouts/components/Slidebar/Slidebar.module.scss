@@ -2,18 +2,41 @@
     display: flex;
     justify-content: center;
     text-align: center;
+    .menuSlidebar{
+        @media (max-width: 900px) {
+            position: fixed;
+            padding: 10px;
+            font-size: 2rem;
+            color: var(--white);
+            background: var(--blue);
+            left: 0;
+            top: 20%;
+            cursor: pointer;
+        }
+    }
+    .menuNone{
+        display: none;
+    }
     .slidebar{
         @media(max-width:899px){
             display: none;
+            position: fixed;
+            top:100px;
+            left: 0;
+            width: 200px;
+            z-index: 10000;
+            background: var(--white);
+            height: 100%;
         }
         .box{
             .title{
                 font-size: 2.5rem;
                 border-bottom: 2px solid var(--grey);
                 margin: 10px 0;
-            }
+                }
             .item{
                 cursor: pointer;
+
                 transition: transform 0.2s linear;
                 .item-list{
                     display: flex;
@@ -37,6 +60,14 @@
                 &:hover{
                     background-color: var(--grey);
                 }
+            }
+        }
+    }
+    .slidebar_active{
+        display: block;
+        .box{
+            .item{
+                display: none;
             }
         }
     }

@@ -21,15 +21,56 @@
                 }
                 @media (min-width: 576px) and (max-width: 768px) {
                     height: 3.5rem;
-                 }
-                 @media (max-width:576px) {
-                    height: 3rem;
-                 }
+                }
+                @media (max-width: 768px) {
+                    display: none;
+                }
+            }
+            .header-sildebar{
+                font-size: 2.5rem;
+                color: var(--blue);
+                display: none;
+                @media (max-width: 768px) {
+                    display: block;
+                }
+            }
+            .active-background{
+                display: none;
+                @media (max-width: 768px) {
+                    display: block;
+                    position: fixed;
+                    width: 100%;
+                    right: 0;
+                    top: 0;
+                    height: 100vh;
+                    background: var(--background-black);
+                    z-index: 10000;
+                }
+            }
+            .closed{
+                display: none;
+                @media (max-width: 768px) {
+                    display: block;
+                    font-size: 2.5rem;
+                    color: var(--blue);
+                    position: absolute;
+                    top: 2%;
+                    right: 10%;
+                }
             }
             .navbar{
                 display: flex;
-                @media (max-width: 768px) {
-                    display: none;
+                 @media (max-width:768px) {
+                    display: block;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    background: var(--background-black);
+                    padding: 20px 20px;
+                    z-index: 9000000;
+                    transform: translateX(-100%);
+                    transition: .5s
                  }
                 .navbar-item{
                     margin: 0 15px;
@@ -38,15 +79,23 @@
                     &:hover{
                         transform: scale(1.1)
                     }
+                    a{
+                     justify-content: left;
+                     margin: 20px 0;   
+                    }
+                }
+            }
+            .active{
+                display: none;
+                @media (max-width:768px) {
+                    display: block;
+                    transform: translateX(0);
                 }
             }
         }
     .header-right{
             display: flex;
             align-items: center;
-            @media (max-width: 768px){
-                display: none;
-            }
             .navbar-cart{
                 cursor: pointer;
                 margin: 0 15px;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faNewspaper, faBurger, faStore, faCartShopping, faUserAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faNewspaper, faBurger, faStore, faCartShopping, faUserAlt, faX, faList } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 import Styles from './Header.module.scss';
@@ -18,29 +18,50 @@ function Header (){
     // set number product length
     const [length, setLength] = useState()
 
+    // show menu on reponsive
+    const [ showMenu, setShowMenu ] = useState(false)
+
     useEffect(()=>{
         setLength(localStorage.getItem('count') || 0)       
     },[])
 
     // set background scroll
     useEffect(()=>{
-        const changeBackground = () =>{
+        const changeBackground = (e) =>{
             if(window.scrollY>=200){
                 setBackground(true)
             }else{
                 setBackground(false)
             }
         }
-        window.addEventListener('scroll', changeBackground)
-    })
+        window.addEventListener('scroll', changeBackground,{passive:true})
+    },[]);
 
     return(
         <div className= { background ? cx('wrapper','active') : cx('wrapper')}>
             <header className={cx('header')} id="container-header">
                 <div className={cx('header-navbar')}>
                         <img  className={cx('header-logo')} src={Logo} alt="Error" />
-                        <ul className={cx('navbar')}>
-                            <li className={cx('navbar-item')}>
+                        <div className={cx('header-sildebar')}>
+                            <FontAwesomeIcon 
+                                icon={faList} 
+                                onClick={
+                                    ()=> setShowMenu(true)
+                                }
+                            />
+                        </div>
+                        <div 
+                            className={showMenu ? cx('active-background'): ''}
+                            onClick={()=> setShowMenu(false)}
+                        ></div>
+                        <ul className={showMenu ? cx('navbar','active') : cx('navbar')}>
+                            <div className={cx('closed')}>
+                                    <FontAwesomeIcon 
+                                        icon={faX}
+                                        onClick={() => setShowMenu(false)} 
+                                    />
+                            </div>
+                            <li className={cx('navbar-item')} onClick={() => setShowMenu(false)} >
                                 <Button 
                                     item 
                                     to={'/'}  
@@ -48,7 +69,7 @@ function Header (){
                                     icon={<FontAwesomeIcon icon={faHome} className={cx('icon')} />}
                                     />
                             </li>
-                            <li className={cx('navbar-item')}>
+                            <li className={cx('navbar-item')} onClick={() => setShowMenu(false)} >
                                 <Button 
                                     item 
                                     to={'/shop'} 
@@ -56,7 +77,7 @@ function Header (){
                                     icon = {<FontAwesomeIcon icon={faBurger}  className={cx('icon')} />}
                                     />
                             </li>
-                            <li className={cx('navbar-item')}>
+                            <li className={cx('navbar-item')} onClick={() => setShowMenu(false)} >
                                 <Button 
                                     item 
                                     to={'/'} 
@@ -64,7 +85,7 @@ function Header (){
                                     icon = {<FontAwesomeIcon icon={faNewspaper}  className={cx('icon')} />}
                                 />
                             </li>
-                            <li className={cx('navbar-item')}>
+                            <li className={cx('navbar-item')} onClick={() => setShowMenu(false)} >
                                 <Button 
                                     item 
                                     to={'/'} 
@@ -85,7 +106,7 @@ function Header (){
                             <div className={cx('account-icon')}>
                                 <FontAwesomeIcon icon={faUserAlt}  className={cx('icon')} />
                             </div>
-                            <Button item to={'/login'}  children={'sign in'}  onchangeLength = {length => setLength(length)}/>
+                            <Button item to={'/login'}  children={'sign in'}  />
                         </div>
                 </div>
             </header>

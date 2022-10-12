@@ -84,7 +84,7 @@ function SearchShop(props){
     )
 }
 SearchShop.propTypes = {
-    props: PropTypes.array.isRequired,
+    props: PropTypes.array,
 }
 
 export default SearchShop
