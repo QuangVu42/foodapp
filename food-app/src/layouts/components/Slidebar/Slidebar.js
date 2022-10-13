@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faList, faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight, faX,faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
 import { faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
 
 import Burgers from '../../../assets/svgs/burger.e4646d9c.svg'
@@ -92,10 +92,10 @@ function Slidebar(props){
     const [checked, setChecked] = useState(false)
     const [showSlidebar,setShowSlidebar] = useState(false)
 
-    // set show menuSlidebar 
+    // set show icon menuSlidebar 
     const [iconShowMenu, setIconShowMenu] = useState(false)
     useEffect(()=>{
-        const IconShowMenu = (e) =>{
+        const IconShowMenu = () =>{
             if(window.scrollY>=224 && window.scrollY<=3500){
                 setIconShowMenu(true)
             }else{
@@ -104,7 +104,15 @@ function Slidebar(props){
         }
         window.addEventListener('scroll', IconShowMenu,{passive:true})
     },[])
-
+    // set closed menuSlidebar
+    useEffect(() =>{
+        const showSlidebar = () =>{
+            if(window.scrollY<=224 || window.scrollY>= 3000 ){
+                setShowSlidebar(false)
+            }
+        }
+        window.addEventListener('scroll', showSlidebar, {passive:true})
+    },[])
     return(
         <div className={cx('wrapper')}>
             <div 
@@ -113,9 +121,15 @@ function Slidebar(props){
                     setShowSlidebar(true)
                 }}
             >
-                <FontAwesomeIcon  icon={faList } />
+                <FontAwesomeIcon  icon={faCaretRight } />
             </div>
             <div className={showSlidebar ? cx('slidebar','slidebar_active') : cx('slidebar')}>
+                <section 
+                    className={cx('closed')}
+                    onClick= {() => setShowSlidebar(false)}
+                > 
+                    <FontAwesomeIcon icon={faX} />
+                </section>
                 <section className={cx('popular','box')}>
                     <h1 
                         className={cx('title')}

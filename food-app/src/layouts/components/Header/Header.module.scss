@@ -76,13 +76,15 @@
                     margin: 0 15px;
                     position: relative;
                     transition: transform 0.2s linear;
+                    @media (max-width: 768px) {
+                        margin: 15px;
+                    }
                     &:hover{
                         transform: scale(1.1)
                     }
                     a{
                      justify-content: left;
-                     margin: 20px 0;   
-                    }
+                    }  
                 }
             }
             .active{

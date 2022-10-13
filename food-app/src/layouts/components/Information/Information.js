@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react'
 
 const cx = classNames.bind(Styles)
 function Information(){
-
     const Informations =[
         {
             id:1,
@@ -39,6 +38,12 @@ function Information(){
 
     const [video, setVideo] = useState(false)
 
+    //pause the video
+    function PauseVideo (){
+        let video =document.getElementById('video')
+        video.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*')
+    }
+        
     return(
         <div className={cx('wrapper')}>
             <section className={cx('review')}>
@@ -69,7 +74,12 @@ function Information(){
                     ></iframe>
                     <span 
                         className={ cx('span')}
-                        onClick={ () => setVideo(false)}
+                        onClick={ 
+                            () => {
+                                setVideo(false)
+                                PauseVideo()
+                            }
+                        }
                     >
                         <FontAwesomeIcon icon={faX} className={cx('icon')} />
                     </span>

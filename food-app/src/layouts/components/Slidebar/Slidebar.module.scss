@@ -3,15 +3,18 @@
     justify-content: center;
     text-align: center;
     .menuSlidebar{
+        display: none;
         @media (max-width: 900px) {
+            display: block;
             position: fixed;
-            padding: 10px;
+            padding: 5px 10px;
             font-size: 2rem;
             color: var(--white);
             background: var(--blue);
             left: 0;
             top: 20%;
             cursor: pointer;
+            z-index: 90000;
         }
     }
     .menuNone{
@@ -19,14 +22,32 @@
     }
     .slidebar{
         @media(max-width:899px){
-            display: none;
+            display: block;
             position: fixed;
-            top:100px;
+            top:60px;
             left: 0;
-            width: 200px;
+            width: 250px;
             z-index: 10000;
             background: var(--white);
             height: 100%;
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: .5s;
+            overflow: auto;
+            max-height: 100%;
+        }
+        .closed{
+            display: none;
+            @media (max-width: 899px) {
+                display: block;
+                font-size: 2.5rem;
+                color: var(--black);
+                position: absolute;
+                top: 10px;
+                right: 2%;
+                cursor: pointer;
+                transform: translateX(-100%);
+            }
         }
         .box{
             .title{
@@ -36,7 +57,6 @@
                 }
             .item{
                 cursor: pointer;
-
                 transition: transform 0.2s linear;
                 .item-list{
                     display: flex;
@@ -65,9 +85,10 @@
     }
     .slidebar_active{
         display: block;
+        transform: translateX(0);
         .box{
             .item{
-                display: none;
+                // display: none;
             }
         }
     }

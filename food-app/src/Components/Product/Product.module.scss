@@ -9,7 +9,6 @@
      }
     .header{
         .image{
-    
             img{
                 height: 20rem;
                 width: 100%;
@@ -31,16 +30,13 @@
                 }
             }
             p{
-                font-size: 1.6rem;
+                font-size: 1.5rem;
                 margin: 5px 0;
                 &:hover{
                     color:var(--red)
                 }
             }
             .box{
-                display: flex;
-                justify-content: space-between;
-                font-size: 2.3rem;
                 .box-address{
                     .icon{
                         color: var(--red);
@@ -74,6 +70,13 @@
         .icon{
             font-size: 2rem;
         }
+    }
+    .toast-messages{
+        background: var(--background-black);
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 10px;
+        box-shadow: none;
     }
 }
 

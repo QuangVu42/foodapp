@@ -7,6 +7,8 @@ import { faCalendar, faCartShopping, faMinus, faTruck , faPlus, faStar as Starfu
 import { faHeart, faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
 import { useLocation } from 'react-router-dom'
 import ReactImageMagnify from 'react-image-magnify';
+import { ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Styles from './Details.module.scss'
 import Button from '../../../Components/Button/Button'
@@ -58,11 +60,16 @@ function Details() {
         }
         localStorage.setItem('cart',JSON.stringify(data))
     }
-
     // show count in header
     useEffect(() =>{
         document.getElementById('count-length').textContent = localStorage.getItem('count')
     },[countNew])
+    // messages in cart
+    const notify = () => toast.success('Product added to cart!',{
+        position: "bottom-right",
+        autoClose: 1500,
+        className:cx('toast-messages')
+    })
     return(
         <div className={cx('wrapper')}>
             <section className={cx('carts')}>
@@ -150,10 +157,12 @@ function Details() {
                                                 () => {
                                                     setConutNew(1)
                                                     onchangeUpDataLocal()
+                                                    notify()
                                                 }
                                             }
                                         />
                                     </div>
+                                    <ToastContainer />
                                 </div>
                                 <ul className={cx('content-redow')}>
                                     <li>

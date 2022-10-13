@@ -4,6 +4,8 @@ import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faDollar, faCartShopping, faStar } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Button from '../Button/Button'
 import Style from './Product.module.scss'
@@ -29,7 +31,12 @@ function Product({
         columnFour,
         item,
     })
-    
+    // messages in cart
+    const notify = () => toast.success('Product added to cart!',{
+        position: "bottom-right",
+        autoClose: 1500,
+        className:cx('toast-messages')
+    })
     // save data in localStorage
     const [count, setCount] = useState(1)
     const onchangeData = () =>{
@@ -62,7 +69,7 @@ function Product({
             document.getElementById('count-length').textContent = localStorage.getItem('count')
         }
     },[count])
-    
+
     return(
         <div className= {Classes} {...props} style={{borderBottom:(border ? "1px solid var(--blue)": "" )}}>
            <Comp to={to} state={{img, name, dsc, country, price, rate}}>
@@ -112,8 +119,10 @@ function Product({
                         onClick={()=>{
                             onchangeData()
                             setCount(count+1)
+                            notify()
                         }}
                     />
+                    <ToastContainer />
                 </div>
             </section>
             <span className={cx('rate')}>

@@ -24,7 +24,7 @@ function SearchShop(props){
         <div className={cx('wrapper')}>
             <Box sx={{flexGrow:2}} className={cx('box')}>
                <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
+                    <Grid item xs={12} lg={8}>
                         <section className={cx('input')}>
                             <input type='search' placeholder='Search your products' 
                                 onChange={(e)=> props.changeInputValue(e.target.value.toString())}
@@ -51,7 +51,7 @@ function SearchShop(props){
                             </div>
                         </section>
                     </Grid>
-                   <Grid item xs={0} md={2} className={cx('btn')}>
+                   <Grid item xs={0} lg={2} className={cx('btn')}>
                         <section className={cx('btn')}>
                             <Button
                                 small
@@ -60,7 +60,7 @@ function SearchShop(props){
                             />
                         </section>
                    </Grid>
-                    <Grid item xs={0} md={1}>
+                    <Grid item xs={0} lg={2}>
                         <section className={cx('icon-types')}>
                             <div className={active ? cx('icon1','active'): cx('icon1')}
                                 onClick= {()=> {
