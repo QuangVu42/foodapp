@@ -16,6 +16,9 @@ function ProductShop({props,layout}){
      // get data
      const products = props
 
+     // show background case products = []
+     const [showBackground,setShowBackground] = useState(false)
+
      // chia pagination
      const [currentPage, setCurrentPage] = useState(1)
      const [postsPerPage,setPostsPerPage] = useState(16)
@@ -36,6 +39,15 @@ function ProductShop({props,layout}){
               setPostsPerPage(15)
           }
      },[layout])
+
+     // show background if products = []
+     useEffect(() =>{
+          if(products.length<=0){
+               setShowBackground(true)
+          }else{
+               setShowBackground(false)
+          }
+     },[products])
 
     return(
      <div className={cx('wrapper')}>
@@ -61,6 +73,8 @@ function ProductShop({props,layout}){
                     </Grid>
                </Box>
                <Pagination postsPerPage={postsPerPage} totalPosts={products.length}  paginate={paginate}/>
+          </div>
+          <div className={showBackground ? cx('active_background','background') : cx('background')}>
           </div>
      </div>
     )

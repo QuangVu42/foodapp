@@ -11,4 +11,16 @@
             }
         }
     }
+    .background{
+        display: none;
+    }
+    .active_background{
+        display: block;
+        height: 400px;
+        width: 100%;
+        background-image: url('../../../assets/images/error_search.webp');
+        background-position:center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }

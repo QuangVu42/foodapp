@@ -32,7 +32,9 @@ function SearchShop(props){
                             <div className={cx('serach-icon')}>
                                 <FontAwesomeIcon icon={faMagnifyingGlass}  className={cx('icon')} />
                             </div>
-                            <div className={inputValue.length >0 ? cx('product','active') : cx('product')}>
+                            <div className={
+                                inputValue.length >0  && products.length > 0 ? cx('product','active') : inputValue.length > 0 && products.length <= 0 ? cx('product','active_background','active') : cx('product')
+                            }> 
                                 {products.map((product,index)=>(
                                     <div key={index}>
                                         <Product

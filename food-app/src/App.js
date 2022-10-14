@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-import {Suspense, Fragment, useEffect } from 'react'
+import {Suspense, Fragment } from 'react'
 
 import publicRoutes from '../src/routes/Routes'
 import Loading from './Loading/Loading'

@@ -11,7 +11,7 @@ function DefaultLayout ({childern}){
     return(
         <div className={cx('wrapper')}>
             <Header />
-            <div>{childern}</div>
+                <div>{childern}</div>
             <Footer />
         </div>
     )
