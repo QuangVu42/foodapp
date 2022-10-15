@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import classNames from 'classnames/bind'
+import PropTypes from 'prop-types'
 
 import Styles from './Pagination.module.scss'
 
@@ -34,4 +35,9 @@ function Pagination({postsPerPage, totalPosts, paginate}){
     )
 }
 
+Pagination.propTypes = {
+    postsPerPage: PropTypes.number.isRequired, 
+    totalPosts: PropTypes.number.isRequired, 
+    paginate: PropTypes.func.isRequired,
+}
 export default Pagination

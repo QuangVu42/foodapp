@@ -6,7 +6,10 @@ import { faLocationDot, faDollar, faCartShopping, faStar } from '@fortawesome/fr
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
+import imgError from '../../assets/images/image-not-found.png'
 import Button from '../Button/Button'
 import Style from './Product.module.scss'
 
@@ -62,20 +65,32 @@ function Product({
             localStorage.setItem('count',datas.length)
         }
     }
-
     // show count in header
     useEffect(() =>{
         if(count){
             document.getElementById('count-length').textContent = localStorage.getItem('count')
         }
     },[count])
+    // images error 
+    const onchangeError = (e) =>{
+        e.target.onError  = null;
+        e.target.src = imgError;
+    }
 
     return(
         <div className= {Classes} {...props} style={{borderBottom:(border ? "1px solid var(--blue)": "" )}}>
            <Comp to={to} state={{img, name, dsc, country, price, rate}}>
                 <div className= {cx('header')}>
                     <section className={cx('image')}>
-                        <img src={img} alt='Error' className={cx('img')} />
+                        <LazyLoadImage 
+                            effect="blur"
+                            delayTime = {3000}
+                            src={img} 
+                            onError = {(e)=> {
+                                onchangeError(e)
+                            }}
+                            className={cx('img')} 
+                        />
                     </section>
                     <section className={cx('content')}>
                         <h3>

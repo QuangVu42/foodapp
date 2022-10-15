@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMinus, faPlus,faCreditCard } from '@fortawesome/free-solid-svg-icons'
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons'
 import Box from '@mui/material/box'
 import Grid from '@mui/material/grid'
 
@@ -12,13 +12,6 @@ import Button from '../../../Components/Button/Button'
 const cx = classNames.bind(Styles)
 
 function Carts() {
-  
-   // total product
-   const [totalProduct, setTotalProduct] = useState(0)
-
-   // set number cart
-   const [number, setNumber] = useState(1)
- 
    // set total price
    const [totalPrice, setTotalPrice] = useState(0)
   

@@ -17,9 +17,17 @@ function SearchShop(props){
     const inputValue = props.value
 
     const [active, setActive] = useState(true)
+    // un show active search
+    const [unShow, setUnShow] = useState(true)
+    useEffect(() =>{
+        setUnShow(true)
+    },[inputValue])
 
     props.changeLayout(active)
-
+    // set show search
+    useEffect(() =>{
+        setUnShow(props.unShowSearch)
+    })
     return (
         <div className={cx('wrapper')}>
             <Box sx={{flexGrow:2}} className={cx('box')}>
@@ -33,8 +41,9 @@ function SearchShop(props){
                                 <FontAwesomeIcon icon={faMagnifyingGlass}  className={cx('icon')} />
                             </div>
                             <div className={
-                                inputValue.length >0  && products.length > 0 ? cx('product','active') : inputValue.length > 0 && products.length <= 0 ? cx('product','active_background','active') : cx('product')
-                            }> 
+                                inputValue.length >0  && products.length > 0  && unShow? cx('product','active') : inputValue.length > 0 && products.length <= 0  && unShow ? cx('product','active_background','active') : cx('product')
+                                }
+                            > 
                                 {products.map((product,index)=>(
                                     <div key={index}>
                                         <Product

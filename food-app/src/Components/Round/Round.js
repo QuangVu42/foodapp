@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind'
+import PropTypes from 'prop-types'
 
 import Styles from './Round.module.scss'
 
@@ -34,4 +35,14 @@ function Round({
     )
 }
 
+Round.propTypes = {
+    width: PropTypes.number, 
+    height: PropTypes.number, 
+    top: PropTypes.number, 
+    bottom: PropTypes.number, 
+    left: PropTypes.number, 
+    right: PropTypes.number, 
+    list: PropTypes.bool, 
+    item: PropTypes.bool, 
+}
 export default Round

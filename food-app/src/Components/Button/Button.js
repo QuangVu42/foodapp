@@ -1,5 +1,6 @@
 import classNames from "classnames/bind";
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 import Style from './Button.module.scss';
 
@@ -47,4 +48,18 @@ function GlobalButton({
     )
 }
 
+GlobalButton.propTypes = {
+    to: PropTypes.string, 
+    href: PropTypes.string, 
+    id: PropTypes.string,
+    primary: PropTypes.bool, 
+    item: PropTypes.bool, 
+    itemLogo: PropTypes.bool, 
+    outline: PropTypes.bool, 
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    circle: PropTypes.bool, 
+    login: PropTypes.bool, 
+    onClick: PropTypes.func,
+}
 export default GlobalButton

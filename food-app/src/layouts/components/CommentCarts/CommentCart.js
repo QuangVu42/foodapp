@@ -2,7 +2,6 @@ import classNames from 'classnames/bind'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStar as Starfullcolor} from '@fortawesome/free-solid-svg-icons'
-import { faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
 
 import Styles from './CommentCart.module.scss'
 import Button from '../../../Components/Button/Button'

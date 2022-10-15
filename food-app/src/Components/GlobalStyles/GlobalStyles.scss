@@ -225,6 +225,7 @@ p{
 }
 .swiper-pagination-bullet{
     background-color: var(--blue);
+    opacity: 0.9!important;
 }
 // edit swiper prev , next icon
 .swiper-button-next:after, .swiper-button-prev:after{

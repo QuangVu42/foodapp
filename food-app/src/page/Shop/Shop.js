@@ -25,7 +25,6 @@ function Shop () {
     const [rateNumber, setRateNumber] = useState(0)
     const [loadingRate, setLoadingRate] = useState(true)
     const [priceId, SetPriceId] = useState(0)
-    const [loadingProduct, setLoadingProduct] = useState(true)
 
     // set layout
     const [layout, setLayout] = useState(false)
@@ -122,9 +121,15 @@ function Shop () {
             }
         })
     },[inputValue])
-     
+    // un show search
+    const [ unShowSearch, setUnShowSearch] = useState(true)
+    useEffect(() =>{
+        setUnShowSearch(true)
+    },[inputValue])
     return(
-        <div className={cx('wrapper')}>
+        <div className={cx('wrapper')} onClick={()=>{
+           setUnShowSearch(false)
+        }}>
             <BannerShop />
             <div id='container'>
                 <Box sx={{flexGrow:2}}>
@@ -145,6 +150,7 @@ function Shop () {
                                             changeLayout = {layout => setLayout(layout)}
                                             props={productInputValue}
                                             value = {inputValue}
+                                            unShowSearch = {unShowSearch}
                                         />
                                     </section>
                                     <section className={cx('product')}>

@@ -4,11 +4,12 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar, faCartShopping, faMinus, faTruck , faPlus, faStar as Starfullcolor, faTag} from '@fortawesome/free-solid-svg-icons'
-import { faHeart, faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
+import { faStar as Starcolorborder} from '@fortawesome/free-regular-svg-icons'
 import { useLocation } from 'react-router-dom'
 import ReactImageMagnify from 'react-image-magnify';
 import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import imgError from '../../../assets/images/image-not-found.png'
 
 import Styles from './Details.module.scss'
 import Button from '../../../Components/Button/Button'
@@ -70,6 +71,11 @@ function Details() {
         autoClose: 1500,
         className:cx('toast-messages')
     })
+    // images error 
+    const onchangeError = (e) =>{
+        e.target.onError  = null;
+        e.target.src = imgError;
+    }
     return(
         <div className={cx('wrapper')}>
             <section className={cx('carts')}>
@@ -81,7 +87,7 @@ function Details() {
                                     smallImage: {
                                         alt: "Error" ,
                                         isFluidWidth: true,
-                                        src: img
+                                        src: img 
                                     },
                                     largeImage: {
                                         src: img,
@@ -90,17 +96,37 @@ function Details() {
                                     }
                                 }} />
                                 <div className={cx('image-change')}>
-                                    <div className={cx('img')}>
-                                        <img src={img} alt="Error" />
+                                    <div className={cx('img')} >
+                                        <img src={img}
+                                            alt='error'  
+                                            onError = {(e)=> {
+                                            onchangeError(e)
+                                            }}
+                                        />
                                     </div>
-                                    <div className={cx('img')}>
-                                        <img src={img} alt="Error" />
+                                    <div className={cx('img')} >
+                                        <img src={img}
+                                            alt='error'
+                                            onError = {(e)=> {
+                                            onchangeError(e)
+                                            }}
+                                        />
                                     </div>
-                                    <div className={cx('img')}>
-                                        <img src={img} alt="Error" />
+                                    <div className={cx('img')} >
+                                        <img src={img}
+                                            alt='error'
+                                            onError = {(e)=> {
+                                            onchangeError(e)
+                                            }}
+                                        />
                                     </div> 
-                                    <div className={cx('img')}>
-                                        <img src={img} alt="Error" />
+                                    <div className={cx('img')} >
+                                        <img src={img}
+                                            alt='error'
+                                            onError = {(e)=> {
+                                            onchangeError(e)
+                                            }}
+                                        />
                                     </div> 
                                 </div>
                             </Grid>

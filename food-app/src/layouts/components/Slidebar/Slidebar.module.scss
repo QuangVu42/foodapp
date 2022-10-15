@@ -14,7 +14,7 @@
             left: 0;
             top: 20%;
             cursor: pointer;
-            z-index: 90000;
+            z-index: 10000;
         }
     }
     .menuNone{
@@ -27,7 +27,7 @@
             top:60px;
             left: 0;
             width: 250px;
-            z-index: 10000;
+            z-index: 20000;
             background: var(--white);
             height: 100%;
             padding: 20px;

@@ -199,6 +199,8 @@ function Slidebar(props){
         </div>
     )
 }
-
+Slidebar.propTypes ={
+    props: PropTypes.array,
+}
 
 export default Slidebar
