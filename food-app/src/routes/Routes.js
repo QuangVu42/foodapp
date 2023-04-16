@@ -6,6 +6,7 @@ import Login from '../page/Login/login'
 import Detail from '../page/Detail/Detail'
 import Cart from '../page/Cart/Cart'
 
+// router
 const publicRoutes = [
     {path: RoutesConfig.home, component: Home},
     {path: RoutesConfig.shop, component: Shop},
