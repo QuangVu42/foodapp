@@ -42,12 +42,6 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -64,4 +58,5 @@
     "gh-pages": "^5.0.0",
     "sass": "^1.54.9"
   }
+  
 }

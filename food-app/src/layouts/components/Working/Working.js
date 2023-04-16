@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide} from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import classNames from 'classnames/bind'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -16,17 +16,18 @@ import "swiper/css";
 import "swiper/css/grid";
 
 // import required modules
-import { Grid} from "swiper";
+import { Grid } from "swiper";
+import { useEffect } from 'react'
 
 const cx = classNames.bind(Styles)
 
-function Working(){
+function Working() {
     const Images = [
         {
             id: 1,
-            content:'choose your favorite',
+            content: 'choose your favorite',
             url: workingImage,
-        },{
+        }, {
             id: 2,
             content: 'we deliver your meals',
             url: workingImage1,
@@ -42,15 +43,17 @@ function Working(){
             url: workingImage4,
         }
     ]
-    setTimeout (() =>{
-        function DeleteIcon () {
-           const a =  document.querySelectorAll('.Working_wrapper__gyhE1 .Working_content__-ot9d .Working_slide-work__lma4W .Working_icon__qeXIk')
-            a[0].style.display = "none"
-            a[a.length-1].style.display = "none"
-        }
-        DeleteIcon()
-    },1000)
-    return(
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         function DeleteIcon() {
+    //             const a = document.querySelectorAll('.Working_wrapper__gyhE1 .Working_content__-ot9d .Working_slide-work__lma4W .Working_icon__qeXIk')
+    //             a[0].style.display = "none"
+    //             a[a.length - 1].style.display = "none"
+    //         }
+    //         DeleteIcon()
+    //     }, 1000)
+    // }, [])
+    return (
         <div className={cx('wrapper')}>
             <div id="container">
                 <div className={cx('title')}>
@@ -60,33 +63,33 @@ function Working(){
                 <div className={cx('content')}>
                     <Swiper
                         breakpoints={{
-                            768:{
+                            768: {
                                 slidesPerView: Images.length,
-                                grid: {rows: 1},
+                                grid: { rows: 1 },
                             },
                             0: {
-                                slidesPerView:1,
-                                grid: {rows: 2}
+                                slidesPerView: 1,
+                                grid: { rows: 2 }
                             }
                         }}
                         modules={[Grid]}
                         className="mySwiper"
                         id="slide"
                     >
-                        {Images.map((image)=>(
+                        {Images.map((image) => (
                             <SwiperSlide key={image.id} className={cx('slide-work')} id='round'>
-                                <img src={image.url} alt="Error" id="border-slide"  />
+                                <img src={image.url} alt="Error" id="border-slide" />
                                 <p className={cx('content')}>{image.content}</p>
                                 <Round
-                                        width= '60px'
-                                        height= '60px'
-                                        left= {12}
-                                        top= {12}
-                                        item
-                                        children={image.id}
+                                    width='60px'
+                                    height='60px'
+                                    left={12}
+                                    top={12}
+                                    item
+                                    children={image.id}
                                 />
-                                <FontAwesomeIcon icon={faChevronRight}  className={cx('icon','icon-two')} />
-                                <FontAwesomeIcon icon={faChevronRight}  className={cx('icon','icon-one')} />
+                                <FontAwesomeIcon icon={faChevronRight} className={cx('icon', 'icon-two')} />
+                                <FontAwesomeIcon icon={faChevronRight} className={cx('icon', 'icon-one')} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
