@@ -4,7 +4,7 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
 import Styles from './Shop.module.scss'
-import productApi from '../../apis/productApis'
+import productApi from '../../apis/ProductApis'
 import LoadingProduct from '../../Loading/LoadingProduct/LoadingProduct'
 
 // modules
@@ -41,7 +41,7 @@ function Shop () {
         const fetchApi = async () =>{
             setLoading(true)
             
-            const result = await productApi(filters)
+            const result = await productApi(filters) || []
             setProducts(result)
             
             setLoading(false)

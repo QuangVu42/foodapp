@@ -14,7 +14,7 @@ const cx = classNames.bind(Styles)
 function ProductShop({props,layout}){
      
      // get data
-     const products = props
+     const products = props || []
 
      // show background case products = []
      const [showBackground,setShowBackground] = useState(false)
