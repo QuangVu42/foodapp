@@ -1,5 +1,5 @@
 const RoutesConfig = {
-    home: '/',
+    home: '/foodapp',
     shop: '/shop',
     login: '/login',
     detail: '/detail',
