@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import  PropTypes from 'prop-types'
 import classNames from 'classnames/bind'
-import Box from '@mui/material/box'
-import Grid from '@mui/material/grid'
+import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 import LazyLoad from 'react-lazyload'
 
 import Product from '../../../Components/Product/Product';
